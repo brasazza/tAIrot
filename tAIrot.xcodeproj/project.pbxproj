@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
+		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
+		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
+		5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3682A15555D00328861 /* Preview Assets.xcassets */; };
+		5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3722A15555D00328861 /* tAIrotTests.swift */; };
+		5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */; };
+		5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EEBF36F2A15555D00328861 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EEBF3562A15555C00328861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EEBF35D2A15555C00328861;
+			remoteInfo = tAIrot;
+		};
+		5EEBF3792A15555D00328861 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EEBF3562A15555C00328861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EEBF35D2A15555C00328861;
+			remoteInfo = tAIrot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5EEBF35E2A15555C00328861 /* tAIrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tAIrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
+		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5EEBF3652A15555D00328861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EEBF3682A15555D00328861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5EEBF36E2A15555D00328861 /* tAIrotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tAIrotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF3722A15555D00328861 /* tAIrotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotTests.swift; sourceTree = "<group>"; };
+		5EEBF3782A15555D00328861 /* tAIrotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tAIrotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITests.swift; sourceTree = "<group>"; };
+		5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EEBF35B2A15555C00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36B2A15555D00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3752A15555D00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5EEBF3552A15555C00328861 = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3602A15555C00328861 /* tAIrot */,
+				5EEBF3712A15555D00328861 /* tAIrotTests */,
+				5EEBF37B2A15555D00328861 /* tAIrotUITests */,
+				5EEBF35F2A15555C00328861 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5EEBF35F2A15555C00328861 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF35E2A15555C00328861 /* tAIrot.app */,
+				5EEBF36E2A15555D00328861 /* tAIrotTests.xctest */,
+				5EEBF3782A15555D00328861 /* tAIrotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EEBF3602A15555C00328861 /* tAIrot */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3612A15555C00328861 /* tAIrotApp.swift */,
+				5EEBF3632A15555C00328861 /* ContentView.swift */,
+				5EEBF3652A15555D00328861 /* Assets.xcassets */,
+				5EEBF3672A15555D00328861 /* Preview Content */,
+			);
+			path = tAIrot;
+			sourceTree = "<group>";
+		};
+		5EEBF3672A15555D00328861 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3682A15555D00328861 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5EEBF3712A15555D00328861 /* tAIrotTests */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3722A15555D00328861 /* tAIrotTests.swift */,
+			);
+			path = tAIrotTests;
+			sourceTree = "<group>";
+		};
+		5EEBF37B2A15555D00328861 /* tAIrotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */,
+				5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */,
+			);
+			path = tAIrotUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EEBF35D2A15555C00328861 /* tAIrot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3822A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrot" */;
+			buildPhases = (
+				5EEBF35A2A15555C00328861 /* Sources */,
+				5EEBF35B2A15555C00328861 /* Frameworks */,
+				5EEBF35C2A15555C00328861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tAIrot;
+			productName = tAIrot;
+			productReference = 5EEBF35E2A15555C00328861 /* tAIrot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EEBF36D2A15555D00328861 /* tAIrotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3852A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrotTests" */;
+			buildPhases = (
+				5EEBF36A2A15555D00328861 /* Sources */,
+				5EEBF36B2A15555D00328861 /* Frameworks */,
+				5EEBF36C2A15555D00328861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EEBF3702A15555D00328861 /* PBXTargetDependency */,
+			);
+			name = tAIrotTests;
+			productName = tAIrotTests;
+			productReference = 5EEBF36E2A15555D00328861 /* tAIrotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5EEBF3772A15555D00328861 /* tAIrotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3882A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrotUITests" */;
+			buildPhases = (
+				5EEBF3742A15555D00328861 /* Sources */,
+				5EEBF3752A15555D00328861 /* Frameworks */,
+				5EEBF3762A15555D00328861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EEBF37A2A15555D00328861 /* PBXTargetDependency */,
+			);
+			name = tAIrotUITests;
+			productName = tAIrotUITests;
+			productReference = 5EEBF3782A15555D00328861 /* tAIrotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EEBF3562A15555C00328861 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5EEBF35D2A15555C00328861 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					5EEBF36D2A15555D00328861 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5EEBF35D2A15555C00328861;
+					};
+					5EEBF3772A15555D00328861 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5EEBF35D2A15555C00328861;
+					};
+				};
+			};
+			buildConfigurationList = 5EEBF3592A15555C00328861 /* Build configuration list for PBXProject "tAIrot" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5EEBF3552A15555C00328861;
+			productRefGroup = 5EEBF35F2A15555C00328861 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5EEBF35D2A15555C00328861 /* tAIrot */,
+				5EEBF36D2A15555D00328861 /* tAIrotTests */,
+				5EEBF3772A15555D00328861 /* tAIrotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5EEBF35C2A15555C00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */,
+				5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36C2A15555D00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3762A15555D00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EEBF35A2A15555C00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF3642A15555C00328861 /* ContentView.swift in Sources */,
+				5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36A2A15555D00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3742A15555D00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */,
+				5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5EEBF3702A15555D00328861 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EEBF35D2A15555C00328861 /* tAIrot */;
+			targetProxy = 5EEBF36F2A15555D00328861 /* PBXContainerItemProxy */;
+		};
+		5EEBF37A2A15555D00328861 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EEBF35D2A15555C00328861 /* tAIrot */;
+			targetProxy = 5EEBF3792A15555D00328861 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5EEBF3802A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5EEBF3812A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EEBF3832A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tAIrot/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EEBF3842A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tAIrot/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5EEBF3862A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tAIrot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tAIrot";
+			};
+			name = Debug;
+		};
+		5EEBF3872A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tAIrot.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tAIrot";
+			};
+			name = Release;
+		};
+		5EEBF3892A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tAIrot;
+			};
+			name = Debug;
+		};
+		5EEBF38A2A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tAIrot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EEBF3592A15555C00328861 /* Build configuration list for PBXProject "tAIrot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3802A15555D00328861 /* Debug */,
+				5EEBF3812A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3822A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3832A15555D00328861 /* Debug */,
+				5EEBF3842A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3852A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3862A15555D00328861 /* Debug */,
+				5EEBF3872A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3882A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3892A15555D00328861 /* Debug */,
+				5EEBF38A2A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5EEBF3562A15555C00328861 /* Project object */;
+}
