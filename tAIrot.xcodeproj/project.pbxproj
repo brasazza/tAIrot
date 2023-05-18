@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030BD78B4305E44A49F1B223 /* Pods_tAIrot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */; };
+		5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
 		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
 		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
 		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
@@ -14,6 +18,15 @@
 		5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3722A15555D00328861 /* tAIrotTests.swift */; };
 		5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */; };
 		5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */; };
+		5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF3902A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3912A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3922A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3942A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
+		5EEBF3952A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
+		5EEBF3962A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tAIrot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tAIrot.release.xcconfig"; path = "Target Support Files/Pods-tAIrot/Pods-tAIrot.release.xcconfig"; sourceTree = "<group>"; };
+		5E887EF92A15C01600D2B565 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		5EEBF35E2A15555C00328861 /* tAIrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tAIrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
 		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +60,10 @@
 		5EEBF3782A15555D00328861 /* tAIrotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tAIrotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITests.swift; sourceTree = "<group>"; };
 		5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5EEBF38B2A15561600328861 /* AspectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectButton.swift; sourceTree = "<group>"; };
+		5EEBF38F2A155E6F00328861 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		5EEBF3932A155EC700328861 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tAIrot.debug.xcconfig"; path = "Target Support Files/Pods-tAIrot/Pods-tAIrot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030BD78B4305E44A49F1B223 /* Pods_tAIrot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25DA0BBC4944814BD1DBE7D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */,
+				3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5EEBF3552A15555C00328861 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +108,8 @@
 				5EEBF3712A15555D00328861 /* tAIrotTests */,
 				5EEBF37B2A15555D00328861 /* tAIrotUITests */,
 				5EEBF35F2A15555C00328861 /* Products */,
+				25DA0BBC4944814BD1DBE7D9 /* Pods */,
+				6B55D2BCA53031F55578895F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +130,10 @@
 				5EEBF3632A15555C00328861 /* ContentView.swift */,
 				5EEBF3652A15555D00328861 /* Assets.xcassets */,
 				5EEBF3672A15555D00328861 /* Preview Content */,
+				5EEBF38B2A15561600328861 /* AspectButton.swift */,
+				5EEBF38F2A155E6F00328861 /* InputView.swift */,
+				5EEBF3932A155EC700328861 /* ResultView.swift */,
+				5E887EF92A15C01600D2B565 /* OpenAIService.swift */,
 			);
 			path = tAIrot;
 			sourceTree = "<group>";
@@ -127,6 +163,14 @@
 			path = tAIrotUITests;
 			sourceTree = "<group>";
 		};
+		6B55D2BCA53031F55578895F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EEBF3822A15555D00328861 /* Build configuration list for PBXNativeTarget "tAIrot" */;
 			buildPhases = (
+				00DF55FCBE1BB71B9345EED5 /* [CP] Check Pods Manifest.lock */,
 				5EEBF35A2A15555C00328861 /* Sources */,
 				5EEBF35B2A15555C00328861 /* Frameworks */,
 				5EEBF35C2A15555C00328861 /* Resources */,
+				F9ECF6DE28E5685CE6672E44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,13 +298,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00DF55FCBE1BB71B9345EED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tAIrot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9ECF6DE28E5685CE6672E44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5EEBF35A2A15555C00328861 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5EEBF3642A15555C00328861 /* ContentView.swift in Sources */,
+				5EEBF3902A155E6F00328861 /* InputView.swift in Sources */,
+				5EEBF3942A155EC700328861 /* ResultView.swift in Sources */,
+				5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */,
 				5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */,
+				5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +358,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEBF3912A155E6F00328861 /* InputView.swift in Sources */,
+				5EEBF3952A155EC700328861 /* ResultView.swift in Sources */,
+				5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */,
 				5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */,
+				5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */,
+				5EEBF3922A155E6F00328861 /* InputView.swift in Sources */,
+				5EEBF3962A155EC700328861 /* ResultView.swift in Sources */,
+				5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */,
 				5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */,
+				5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -411,12 +511,13 @@
 		};
 		5EEBF3832A15555D00328861 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tAIrot/Preview Content\"";
+				DEVELOPMENT_TEAM = MT6TFTW824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -424,6 +525,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,12 +541,13 @@
 		};
 		5EEBF3842A15555D00328861 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tAIrot/Preview Content\"";
+				DEVELOPMENT_TEAM = MT6TFTW824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -452,6 +555,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
