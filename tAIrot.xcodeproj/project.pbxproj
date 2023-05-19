@@ -11,6 +11,12 @@
 		5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
 		5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
 		5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5EA811B62A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811B82A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811BA2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811BB2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811BC2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
 		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
 		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
 		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
@@ -50,6 +56,8 @@
 		37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tAIrot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tAIrot.release.xcconfig"; path = "Target Support Files/Pods-tAIrot/Pods-tAIrot.release.xcconfig"; sourceTree = "<group>"; };
 		5E887EF92A15C01600D2B565 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		5EA811B52A17FBDA00D06FCF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5EA811B92A18118B00D06FCF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5EEBF35E2A15555C00328861 /* tAIrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tAIrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
 		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +142,8 @@
 				5EEBF38F2A155E6F00328861 /* InputView.swift */,
 				5EEBF3932A155EC700328861 /* ResultView.swift */,
 				5E887EF92A15C01600D2B565 /* OpenAIService.swift */,
+				5EA811B52A17FBDA00D06FCF /* CardView.swift */,
+				5EA811B92A18118B00D06FCF /* Card.swift */,
 			);
 			path = tAIrot;
 			sourceTree = "<group>";
@@ -345,12 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA811B62A17FBDA00D06FCF /* CardView.swift in Sources */,
 				5EEBF3642A15555C00328861 /* ContentView.swift in Sources */,
 				5EEBF3902A155E6F00328861 /* InputView.swift in Sources */,
 				5EEBF3942A155EC700328861 /* ResultView.swift in Sources */,
 				5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */,
 				5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */,
 				5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */,
+				5EA811BA2A18118B00D06FCF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,8 +372,10 @@
 			files = (
 				5EEBF3912A155E6F00328861 /* InputView.swift in Sources */,
 				5EEBF3952A155EC700328861 /* ResultView.swift in Sources */,
+				5EA811BB2A18118B00D06FCF /* Card.swift in Sources */,
 				5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */,
 				5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */,
+				5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */,
 				5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,12 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA811B82A17FBDA00D06FCF /* CardView.swift in Sources */,
 				5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */,
 				5EEBF3922A155E6F00328861 /* InputView.swift in Sources */,
 				5EEBF3962A155EC700328861 /* ResultView.swift in Sources */,
 				5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */,
 				5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */,
 				5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */,
+				5EA811BC2A18118B00D06FCF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

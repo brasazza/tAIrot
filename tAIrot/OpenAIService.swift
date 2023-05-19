@@ -35,7 +35,7 @@ class OpenAIService {
         
         let apiURL = "https://api.openai.com/v1/chat/completions"
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             "Content-Type": "application/json"
         ]
         let parameters: Parameters = [

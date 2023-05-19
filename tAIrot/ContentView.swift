@@ -8,59 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    let cards = [
+        Card(title: "Love",
+             description: "Seek insight into your romantic relationships and feelings. Love might be just a card away.",
+             color: LinearGradient(gradient: Gradient(colors: [Color.pink, Color.red]), startPoint: .top, endPoint: .bottom)),
+        Card(title: "Finance",
+             description: "Explore your financial status and potential opportunities. Fortune might be just a card away.",
+             color: LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow]), startPoint: .top, endPoint: .bottom)),
+        Card(title: "Family",
+             description: "Delve into matters of family and relationships. Understanding might be just a card away.",
+             color: LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.orange]), startPoint: .top, endPoint: .bottom)),
+        Card(title: "Death",
+             description: "Discover insights into the profound questions of life and mortality. Wisdom might be just a card away.",
+             color: LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
+    ]
+
     var body: some View {
-        TabView {
-            NavigationView {
-                VStack {
-                    Text("Love View")
-                    NavigationLink(destination: InputView(aspect: "love")) {
-                        Text("Get Prediction")
+        NavigationView {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(cards) { card in
+                        CardView(card: card)
                     }
                 }
-                .navigationBarTitle("Love")
             }
-            .tabItem {
-                Label("Love", systemImage: "heart")
-            }
-
-            NavigationView {
-                VStack {
-                    Text("Finance View")
-                    NavigationLink(destination: InputView(aspect: "finance")) {
-                        Text("Get Prediction")
-                    }
-                }
-                .navigationBarTitle("Finance")
-            }
-            .tabItem {
-                Label("Finance", systemImage: "dollarsign.circle")
-            }
-
-            NavigationView {
-                VStack {
-                    Text("Family View")
-                    NavigationLink(destination: InputView(aspect: "family")) {
-                        Text("Get Prediction")
-                    }
-                }
-                .navigationBarTitle("Family")
-            }
-            .tabItem {
-                Label("Family", systemImage: "person.3")
-            }
-
-            NavigationView {
-                VStack {
-                    Text("Death View")
-                    NavigationLink(destination: InputView(aspect: "death")) {
-                        Text("Get Prediction")
-                    }
-                }
-                .navigationBarTitle("Death")
-            }
-            .tabItem {
-                Label("Death", systemImage: "xmark.circle")
-            }
+            .navigationBarTitle("tAIrot")
         }
     }
 }
@@ -70,6 +42,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 
 
 
