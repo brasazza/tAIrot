@@ -11,7 +11,7 @@ struct CardView: View {
     var card: Card
     
     var body: some View {
-        NavigationLink(destination: InputView(aspect: card.title)) {
+        NavigationLink(destination: InputView(card: card)) {
             VStack {
                 Text(card.title)
                     .font(.largeTitle)
@@ -34,12 +34,12 @@ struct CardView: View {
                     .background(Color.white.opacity(0.3))
                     .cornerRadius(60)
             }
-                    .padding(.bottom, 50)
+            .padding(.bottom, 50)
             .frame(width: 300, height: 650)
             .background(card.color)
             .cornerRadius(40)
             .padding()
-            .shadow(radius: 5)
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10) // Add shadow here
         }
     }
 }
@@ -49,6 +49,9 @@ struct Card_Previews: PreviewProvider {
         CardView(card: Card(title: "Love", description: "Seek insight into your romantic relationships and feelings. Love might be just a card away.", color: LinearGradient(gradient: Gradient(colors: [Color.pink, Color.red]), startPoint: .top, endPoint: .bottom)))
     }
 }
+
+
+
 
 
 

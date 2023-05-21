@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme // Retrieves the current color scheme
+    
     let cards = [
         Card(title: "Love",
              description: "Seek insight into your romantic relationships and feelings. Love might be just a card away.",
@@ -23,17 +25,31 @@ struct ContentView: View {
              color: LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
     ]
 
+    var shadowColor: Color { // Computed property for the shadow color
+        switch colorScheme {
+        case .light:
+            return Color.black.opacity(0.2)
+        case .dark:
+            return Color.white.opacity(0.2)
+        @unknown default:
+            return Color.black.opacity(0.2)
+        }
+    }
+
     var body: some View {
         NavigationView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(cards) { card in
                         CardView(card: card)
+                            .shadow(color: shadowColor, radius: 6, x: -5, y: -5) // Use the computed shadow color, changed x and y values
                     }
                 }
+                .padding(.horizontal, 10) // Adding padding here
             }
             .navigationBarTitle("tAIrot")
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -42,6 +58,10 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
+
 
 
 

@@ -8,38 +8,37 @@
 import SwiftUI
 
 struct ResultView: View {
-    var prediction: String
+    let prediction: String
+    let card: Card
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Your Future Prediction")
+        VStack {
+            Spacer()
+            Text("Your Future")
                 .font(.largeTitle)
-                .fontWeight(.bold)
-
-            Text(prediction)
-                .font(.title)
-                .multilineTextAlignment(.center)
+                .bold()
                 .padding()
-
-            Button(action: {
-                // This action will dismiss the ResultView
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-            }) {
-                Text("Done")
-                    .font(.title2)
-                    .padding()
-                    .background(Color.blue)
+            
+            ZStack {
+                card.color // Use card's color here
+                .cornerRadius(50)
+                .padding()
+                .shadow(radius: 5)
+                
+                Text(prediction)
+                    .font(.title2) // Increase font size
+                    .padding() // Add padding around the text
+                    .multilineTextAlignment(.center) // Align text to center
                     .foregroundColor(.white)
-                    .cornerRadius(8)
             }
+            Spacer()
         }
-        .padding()
+        .background(Color.gray.opacity(0.2))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct ResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultView(prediction: "You will have a great future!")
-    }
-}
+
+
+
 

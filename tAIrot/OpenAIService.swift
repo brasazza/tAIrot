@@ -32,10 +32,9 @@ class OpenAIService {
     static let shared = OpenAIService()
     
     func createChatCompletion(prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
-        
         let apiURL = "https://api.openai.com/v1/chat/completions"
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             "Content-Type": "application/json"
         ]
         let parameters: Parameters = [
@@ -48,7 +47,7 @@ class OpenAIService {
                 switch response.result {
                 case .success(let chatCompletion):
                     if let assistantMessage = chatCompletion.choices.first?.message.content {
-                        completion(.success(assistantMessage))
+                        completion(.success(assistantMessage)) // Removed the card variable here
                     } else {
                         completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No assistant message found in response."])))
                     }
