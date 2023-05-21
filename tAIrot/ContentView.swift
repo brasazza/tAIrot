@@ -42,14 +42,14 @@ struct ContentView: View {
                 HStack {
                     ForEach(cards) { card in
                         CardView(card: card)
-                            .shadow(color: shadowColor, radius: 6, x: -5, y: -5) // Use the computed shadow color, changed x and y values
+                            .shadow(color: shadowColor, radius: 6, x: -5, y: -10) // Adjusted shadow
                     }
                 }
-                .padding(.horizontal, 10) // Adding padding here
+                .padding(.horizontal, 10)
+                .padding(.vertical, 100) // Increased vertical padding
             }
             .navigationBarTitle("tAIrot")
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -58,6 +58,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 
 
