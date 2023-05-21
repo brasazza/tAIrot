@@ -54,13 +54,14 @@ struct CardBackgroundView: View {
         GeometryReader { geometry in
             card.color
                 .overlay(
-                    ForEach(0..<9) { _ in
+                    ForEach(0..<6) { _ in // change 9 to 6 to display only 6 emojis
                         CardEmojiView(card: card)
                             .font(.system(size: CGFloat(arc4random_uniform(50) + 50)))  // Random size
                             .opacity(0.3)
                             .rotationEffect(.degrees(Double(Int(arc4random_uniform(45)) - 20)))  // Random rotation
                             .position(x: CGFloat(arc4random_uniform(UInt32(geometry.size.width))),
-                                      y: CGFloat(arc4random_uniform(UInt32(geometry.size.height*2/3))+UInt32(geometry.size.height/3)))
+                                      y: CGFloat(arc4random_uniform(UInt32(geometry.size.height/2))+UInt32(geometry.size.height/3)))
+                        // Adjust y position to avoid last 4th of card
                     }
                 )
         }
@@ -76,7 +77,7 @@ struct CardEmojiView: View {
         } else if card.title == "Finance" {
             Text("💵")
         } else if card.title == "Family" {
-            Text("👨‍👩‍👦")
+            Text("🫶")
         } else if card.title == "Death" {
             Text("💀")
         } else {
@@ -90,6 +91,7 @@ struct Card_Previews: PreviewProvider {
         CardView(card: Card(title: "Love", description: "Seek insight into your romantic relationships and feelings. Love might be just a card away.", color: LinearGradient(gradient: Gradient(colors: [Color.pink, Color.red]), startPoint: .top, endPoint: .bottom)))
     }
 }
+
 
 
 

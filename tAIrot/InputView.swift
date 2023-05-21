@@ -38,7 +38,7 @@ struct InputView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(25)
 
-                TextField("What do you want to know about your future?", text: $question)
+                TextField("What do you want to know about your future? Feel free to include context and be as specific as possible.", text: $question)
                     .frame(height: 100)
                     .padding()
                     .background(Color.gray.opacity(0.2))
