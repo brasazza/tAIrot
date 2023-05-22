@@ -14,7 +14,7 @@ struct InputView: View {
     @State private var age: String = ""
     @State private var question: String = ""
     @State private var showResult: Bool = false
-    @State private var prediction: (String, Card) = ("", Card(title: "", description: "", color: LinearGradient(gradient: Gradient(colors: []), startPoint: .top, endPoint: .bottom))) // Change this to tuple
+    @State private var prediction: (String, Card) = ("", Card(title: "", description: "", color: LinearGradient(gradient: Gradient(colors: []), startPoint: .top, endPoint: .bottom)))
     @State private var isLoading: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
@@ -49,12 +49,11 @@ struct InputView: View {
                     isLoading = true
                     if let ageNumber = Int(age) {
                         let prompt = createPrompt(name: name, age: ageNumber, question: question)
-                        openAIService.createChatCompletion(prompt: prompt) { result in // Add card here
+                        openAIService.createChatCompletion(prompt: prompt) { result in
                             switch result {
                             case .success(let predictionResult):
-                                self.prediction = (predictionResult, card) // Now this should work
+                                self.prediction = (predictionResult, card)
                             case .failure(let error):
-                                // handle error here
                                 print(error.localizedDescription)
                             }
                             self.isLoading.toggle()
@@ -78,10 +77,11 @@ struct InputView: View {
             .navigationBarTitle("Enter your details")
         }
         .sheet(isPresented: $showResult) {
-            ResultView(prediction: prediction.0, card: prediction.1) // Pass the values separately here
+            ResultView(prediction: prediction.0, card: prediction.1, name: name, question: question) // pass the additional properties here
         }
     }
 }
+
 
 
 

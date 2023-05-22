@@ -10,14 +10,12 @@ import SwiftUI
 struct ResultView: View {
     let prediction: String
     let card: Card
+    let name: String
+    let question: String
 
     var body: some View {
         VStack {
             Spacer()
-            Text("Your Future")
-                .font(.largeTitle)
-                .bold()
-                .padding()
             
             ZStack {
                 card.color // Use card's color here
@@ -25,18 +23,50 @@ struct ResultView: View {
                 .padding()
                 .shadow(radius: 5)
                 
-                Text(prediction)
-                    .font(.title2) // Increase font size
-                    .padding() // Add padding around the text
-                    .multilineTextAlignment(.center) // Align text to center
-                    .foregroundColor(.white)
+                VStack {
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("\(name)'s Future 🔮")
+                            .font(.title) // Larger font size
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Text("\"\(question)\"")
+                            .font(.title3) // increased font size
+                            .italic()
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(.bottom, 20)
+
+                    VStack {
+                        Spacer()
+                        Text(prediction)
+                            .font(.title2) // Increase font size
+                            .foregroundColor(.white) // Make the text white
+                            .multilineTextAlignment(.center) // Align text to center
+                        Spacer()
+                    }
+                }
+                .padding(50) // Add padding around the text
             }
-            Spacer()
+            
+            Spacer(minLength: 100) // Decreased space at the bottom
         }
         .background(Color.gray.opacity(0.2))
         .edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
