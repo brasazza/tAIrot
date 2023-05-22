@@ -50,12 +50,43 @@ struct ResultView: View {
                 .padding(50) // Add padding around the text
             }
             
-            Spacer(minLength: 100) // Decreased space at the bottom
-        }
-        .background(Color.gray.opacity(0.2))
-        .edgesIgnoringSafeArea(.all)
-    }
-}
+            HStack(spacing: 50) {
+                            Button(action: {}) {
+                                Text("💾")
+                                    .font(.title2)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color(red: 191/255, green: 101/255, blue: 197/255)) // Use RGB values
+                                    .cornerRadius(60)
+                            }
+
+                            Button(action: {}) {
+                                Text("Share")
+                                    .font(.title2)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color(red: 191/255, green: 101/255, blue: 197/255)) // Use RGB values
+                                    .cornerRadius(60)
+                            }
+
+                            Button(action: {}) {
+                                Text("Done")
+                                    .font(.title2)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color(red: 191/255, green: 101/255, blue: 197/255)) // Use RGB values
+                                    .cornerRadius(60)
+                            }
+                        }
+                        .padding(.bottom, 50)
+                    }
+                    .background(Color.gray.opacity(0.2))
+                    .edgesIgnoringSafeArea(.all)
+                }
+            }
 
 
 
