@@ -77,7 +77,11 @@ struct InputView: View {
             .navigationBarTitle("Enter your details")
         }
         .sheet(isPresented: $showResult) {
-            ResultView(prediction: prediction.0, card: prediction.1, name: name, question: question) // pass the additional properties here
+            if #available(iOS 16.0, *) {
+                ResultView(prediction: prediction.0, card: prediction.1, name: name, question: question)
+            } else {
+                // Fallback on earlier versions
+            } // pass the additional properties here
         }
     }
 }
