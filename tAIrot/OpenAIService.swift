@@ -34,7 +34,7 @@ class OpenAIService {
     func createChatCompletion(prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
         let apiURL = "https://api.openai.com/v1/chat/completions"
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             "Content-Type": "application/json"
         ]
         let parameters: Parameters = [
