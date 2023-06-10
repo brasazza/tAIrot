@@ -17,6 +17,10 @@
 		5EA811BA2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
 		5EA811BB2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
 		5EA811BC2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811C32A280C7400D06FCF /* IGStoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5EA811C22A280C7400D06FCF /* IGStoryKit */; };
+		5EA811C72A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
+		5EA811C82A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
+		5EA811C92A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
 		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
 		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
 		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
@@ -58,6 +62,8 @@
 		5E887EF92A15C01600D2B565 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		5EA811B52A17FBDA00D06FCF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5EA811B92A18118B00D06FCF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5EA811C42A280D7300D06FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoModerno-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		5EEBF35E2A15555C00328861 /* tAIrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tAIrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
 		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				030BD78B4305E44A49F1B223 /* Pods_tAIrot.framework in Frameworks */,
+				5EA811C32A280C7400D06FCF /* IGStoryKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +116,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5EA811C52A280F3200D06FCF /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		5EEBF3552A15555C00328861 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +149,8 @@
 		5EEBF3602A15555C00328861 /* tAIrot */ = {
 			isa = PBXGroup;
 			children = (
+				5EA811C42A280D7300D06FCF /* Info.plist */,
+				5EA811C52A280F3200D06FCF /* Font */,
 				5EEBF3612A15555C00328861 /* tAIrotApp.swift */,
 				5EEBF3632A15555C00328861 /* ContentView.swift */,
 				5EEBF3652A15555D00328861 /* Assets.xcassets */,
@@ -199,6 +216,9 @@
 			dependencies = (
 			);
 			name = tAIrot;
+			packageProductDependencies = (
+				5EA811C22A280C7400D06FCF /* IGStoryKit */,
+			);
 			productName = tAIrot;
 			productReference = 5EEBF35E2A15555C00328861 /* tAIrot.app */;
 			productType = "com.apple.product-type.application";
@@ -271,6 +291,9 @@
 				Base,
 			);
 			mainGroup = 5EEBF3552A15555C00328861;
+			packageReferences = (
+				5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */,
+			);
 			productRefGroup = 5EEBF35F2A15555C00328861 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -289,6 +312,7 @@
 			files = (
 				5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */,
 				5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */,
+				5EA811C72A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA811C82A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA811C92A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,12 +562,13 @@
 				DEVELOPMENT_TEAM = MT6TFTW824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tAIrot/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save your card predictions as images in your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,12 +594,13 @@
 				DEVELOPMENT_TEAM = MT6TFTW824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tAIrot/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save your card predictions as images in your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -699,6 +727,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwapnanilDhol/IGStoryKit";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EA811C22A280C7400D06FCF /* IGStoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */;
+			productName = IGStoryKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5EEBF3562A15555C00328861 /* Project object */;
 }

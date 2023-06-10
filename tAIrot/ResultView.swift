@@ -1,4 +1,3 @@
-//
 //  ResultView.swift
 //  tAIrot
 //
@@ -7,6 +6,7 @@
 
 import SwiftUI
 import PhotosUI
+import IGStoryKit
 
 @available(iOS 16.0, *)
 class ImageSaver: NSObject {
@@ -86,8 +86,10 @@ struct ResultView: View {
     let card: Card
     let name: String
     let question: String
+    @Binding var showResult: Bool
     
     @Environment(\.displayScale) var displayScale
+    @Environment(\.colorScheme) var colorScheme
     
     private let imageSaver = ImageSaver()
     @State private var isShareSheetShowing = false
@@ -95,11 +97,27 @@ struct ResultView: View {
     @State private var shareImageData: Data? = nil
     
     var contentView: some View {
+        GeometryReader { geometry in
         ZStack {
             card.color
                 .cornerRadius(50)
                 .padding()
                 .shadow(radius: 5)
+                .overlay(
+                            ForEach(0..<6) { _ in // change 9 to 6 to display only 6 emojis
+                                CardEmojiView(card: card)
+                                    .font(.system(size: CGFloat(arc4random_uniform(50) + 50)))  // Random size
+                                    .opacity(0.3)
+                                    .rotationEffect(.degrees(Double(Int(arc4random_uniform(50)) - 20)))  // Random rotation
+                                    .position(x: CGFloat(arc4random_uniform(UInt32(geometry.size.width))),
+                                              y: CGFloat(arc4random_uniform(UInt32(geometry.size.height))))
+                            }
+                        )
+                        .mask(
+                            RoundedRectangle(cornerRadius: 50)
+                                .padding()
+                        )
+                }
 
             VStack {
                 VStack(alignment: .center, spacing: 10) {
@@ -146,54 +164,85 @@ struct ResultView: View {
                         let image = contentView.snapshot(width: 500, height: totalHeight)
                         imageSaver.writeToPhotoAlbum(image: image)
                     }) {
-                        Text("💾")
+                        Image(systemName: "arrow.down.app")
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color(red: 191/255, green: 101/255, blue: 197/255))
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
                     }
                         
                     Button(action: {
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
+                                            
+                        let story = IGStory(contentSticker: image, background: .color(color: .systemOrange))
+
+                        let dispatcher = IGDispatcher(story: story, facebookAppID: "2503996109776287")
+                        dispatcher.start()
+                    }) {
+                        Image("Instagram") // Using Instagram icon image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 27, height: 27)
+                            .padding()
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(60)
+                    }
+                    
+                    Button(action: {
+                        let totalHeight = geometry.size.height
+                        let image = contentView.snapshot(width: 500, height: totalHeight)
                         shareImageData = image.pngData()
                         isShareSheetShowing = true
                     }) {
-                        Text("Share")
+                        Image(systemName: "square.and.arrow.up")
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color(red: 191/255, green: 101/255, blue: 197/255))
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
                     }
                     .sheet(isPresented: $isShareSheetShowing) {
                         ShareSheet(imageData: $shareImageData)
                     }
-                        
-                    Button(action: {}) {
-                        Text("Done")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color(red: 191/255, green: 101/255, blue: 197/255))
-                            .cornerRadius(60)
-                    }
+                    
+                    Button(action: {
+                        self.showResult = false
+                        }) {
+                            Image(systemName: "checkmark")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
+                                .cornerRadius(60)
+                        }
                 }
                 .padding(.bottom, 50)
                 
                 Spacer()
             }
-            .background(Image("bg").resizable().scaledToFill().edgesIgnoringSafeArea(.all))
+            .background(
+                Group {
+                    if colorScheme == .dark {
+                        Image("blackbg")
+                            .resizable()
+                            .scaledToFill()
+                            .edgesIgnoringSafeArea(.all)
+                    } else {
+                        Image("whitebg")
+                            .resizable()
+                            .scaledToFill()
+                            .edgesIgnoringSafeArea(.all)
+                    }
+                }
+            )
         }
     }
 }
 
 
 
-
-
-    
