@@ -30,7 +30,7 @@ struct CardView: View {
                         
                         Spacer()
                         
-                        Text("Guess My Future 🔮")
+                        Text(NSLocalizedString("Guess My Future 🔮", comment: ""))
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
@@ -41,8 +41,6 @@ struct CardView: View {
                             .cornerRadius(60)
                             .shadow(color: Color.white.opacity(0.4), radius: 10, x: -5, y: -5)
                             .shadow(color: Color.black.opacity(0.25), radius: 10, x: 5, y: 5)
-
-
                     }
                     .padding(.bottom, geometry.size.height * 0.1)
                     .padding(.top, geometry.size.height * 0.05)
@@ -50,6 +48,7 @@ struct CardView: View {
                 .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.8)
                 .cornerRadius(40)
                 .padding()
+                .padding(.vertical, 10)
                 .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 0)
                 .padding(.horizontal, UIScreen.main.bounds.width * 0.04)
             }
@@ -85,26 +84,27 @@ struct CardEmojiView: View {
     var card: Card
 
     var body: some View {
-        if card.title == "Love" {
+        switch card.type {
+        case .love:
             Text("❤️")
-        } else if card.title == "Finance" {
+        case .finance:
             Text("💵")
-        } else if card.title == "Relationships" {
+        case .relationships:
             Text("🫶")
-        } else if card.title == "Death" {
+        case .death:
             Text("💀")
-        } else if card.title == "Job" {
+        case .job:
             Text("🧳")
-        } else if card.title == "Health" {
+        case .health:
             Text("💊")
-        } else {
-            Text("")
+        case .education:
+            Text("📝")
         }
     }
 }
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: Card(title: "Love", description: "Seek insight into your romantic relationships and feelings. Love might be just a card away.", color: LinearGradient(gradient: Gradient(colors: [Color.pink, Color.red]), startPoint: .top, endPoint: .bottom)))
+        CardView(card: Card(title: NSLocalizedString("Love", comment: ""), description: NSLocalizedString("Seek insight into your romantic relationships and feelings. Love might be just a card away.", comment: ""), color: LinearGradient(gradient: Gradient(colors: [Color.pink, Color.red]), startPoint: .top, endPoint: .bottom), type: .love))
     }
 }

@@ -10,15 +10,22 @@ import IGStoryKit
 
 @available(iOS 16.0, *)
 class ImageSaver: NSObject {
+    var successHandler: (() -> Void)?
+    var errorHandler: ((Error) -> Void)?
+
     func writeToPhotoAlbum(image: UIImage) {
         if let pngData = image.pngData() {
             let pngImage = UIImage(data: pngData)
-            UIImageWriteToSavedPhotosAlbum(pngImage!, self, #selector(saveCompleted), nil)
+            UIImageWriteToSavedPhotosAlbum(pngImage!, self, #selector(saveCompleted(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
-    
+
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        print("Saved!")
+        if let error = error {
+            errorHandler?(error)
+        } else {
+            successHandler?()
+        }
     }
 }
 
@@ -95,61 +102,72 @@ struct ResultView: View {
     @State private var isShareSheetShowing = false
     @State private var shareImage: UIImage? = nil
     @State private var shareImageData: Data? = nil
-    
+    @State private var showMessage = false
+    @State private var message = ""
+
     var contentView: some View {
         GeometryReader { geometry in
-        ZStack {
-            card.color
-                .cornerRadius(50)
-                .padding()
-                .shadow(radius: 5)
-                .overlay(
-                            ForEach(0..<6) { _ in // change 9 to 6 to display only 6 emojis
-                                CardEmojiView(card: card)
-                                    .font(.system(size: CGFloat(arc4random_uniform(50) + 50)))  // Random size
-                                    .opacity(0.3)
-                                    .rotationEffect(.degrees(Double(Int(arc4random_uniform(50)) - 20)))  // Random rotation
-                                    .position(x: CGFloat(arc4random_uniform(UInt32(geometry.size.width))),
-                                              y: CGFloat(arc4random_uniform(UInt32(geometry.size.height))))
-                            }
-                        )
-                        .mask(
-                            RoundedRectangle(cornerRadius: 50)
-                                .padding()
-                        )
-                }
+            ZStack {
+                card.color
+                    .cornerRadius(50)
+                    .padding()
+                    .shadow(radius: 5)
+                    .overlay(
+                        ForEach(0..<6) { _ in
+                            CardEmojiView(card: card)
+                                .font(.system(size: CGFloat(arc4random_uniform(50) + 50)))
+                                .opacity(0.3)
+                                .rotationEffect(.degrees(Double(Int(arc4random_uniform(50)) - 20)))
+                                .position(x: CGFloat(arc4random_uniform(UInt32(geometry.size.width))),
+                                          y: CGFloat(arc4random_uniform(UInt32(geometry.size.height))))
+                        }
+                    )
+                    .mask(
+                        RoundedRectangle(cornerRadius: 50)
+                            .padding()
+                    )
 
-            VStack {
-                VStack(alignment: .center, spacing: 10) {
-                    Text("\(name)'s Future 🔮")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.white)
-                    
-                    Text("\"\(question)\"")
-                        .font(.title3)
-                        .italic()
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                }
-                .padding(.bottom, 20)
-                
                 VStack {
-                    Spacer()
-                    Text(prediction)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 500)
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Spacer()
+                    VStack(alignment: .center, spacing: 10) {
+                        Text(String(format: NSLocalizedString("%@'s Future 🔮", comment: ""), name))
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Text("\"\(question)\"")
+                            .font(.title3)
+                            .italic()
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(.bottom, 20)
+                    
+                    VStack {
+                        Spacer()
+                        Text(prediction)
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 500)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer()
+                    }
+                    
+                    // Aquí agregamos el texto
+                    Text("The Seer App 🔮")
+                        .font(.custom("MuseoModerno", size: 20))
+                        .bold()
+                        .foregroundColor(.white)  // También puedes cambiar el color
+                        .padding(.bottom, -24)
+                   
                 }
+                .padding(50)
             }
-            .padding(50)
+            .drawingGroup()
         }
-        .drawingGroup()
     }
+
     
     var body: some View {
         GeometryReader { geometry in
@@ -162,15 +180,27 @@ struct ResultView: View {
                     Button(action: {
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
+                        imageSaver.successHandler = {
+                            self.message = NSLocalizedString("save_success", comment: "")
+                            self.showMessage = true
+                        }
+                        imageSaver.errorHandler = { error in
+                            self.message = String(format: NSLocalizedString("save_failure", comment: ""), error.localizedDescription)
+                            self.showMessage = true
+                        }
                         imageSaver.writeToPhotoAlbum(image: image)
                     }) {
                         Image(systemName: "arrow.down.app")
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
                             .padding()
                             .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
+                    }
+                    .alert(isPresented: $showMessage) {
+                        Alert(title: Text(message))
                     }
                         
                     Button(action: {
@@ -185,7 +215,7 @@ struct ResultView: View {
                         Image("Instagram") // Using Instagram icon image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 27, height: 27)
+                            .frame(width: 30, height: 30)
                             .padding()
                             .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
@@ -201,6 +231,7 @@ struct ResultView: View {
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
                             .padding()
                             .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
@@ -216,6 +247,7 @@ struct ResultView: View {
                                 .font(.title2)
                                 .bold()
                                 .foregroundColor(.white)
+                                .frame(width: 30, height: 30)
                                 .padding()
                                 .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                                 .cornerRadius(60)

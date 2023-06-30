@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import FirebaseRemoteConfig
 
 struct ChatCompletion: Codable {
     let id: String
@@ -30,17 +31,18 @@ struct ChatCompletion: Codable {
 class OpenAIService {
     
     static let shared = OpenAIService()
+    private let remoteConfigService = RemoteConfigService.shared
     
     func createChatCompletion(prompt: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let apiURL = "https://api.openai.com/v1/chat/completions"
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer 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",
-            "Content-Type": "application/json"
-        ]
-        let parameters: Parameters = [
-            "model": "gpt-3.5-turbo",
-            "messages": [["role": "user", "content": prompt]]
-        ]
+            let apiURL = remoteConfigService.getString(for: "apiURL")
+            let headers: HTTPHeaders = [
+                "Authorization": remoteConfigService.getString(for: "Authorization"),
+                "Content-Type": "application/json"
+            ]
+            let parameters: Parameters = [
+                "model": remoteConfigService.getString(for: "model"),
+                "messages": [["role": "user", "content": prompt]]
+            ]
         
         AF.request(apiURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseDecodable(of: ChatCompletion.self) { response in

@@ -12,5 +12,16 @@ struct Card: Identifiable {
     let title: String
     let description: String
     let color: LinearGradient
+    let type: CardType
+}
+
+enum CardType: String {
+    case love = "Love"
+    case finance = "Finance"
+    case relationships = "Relationships"
+    case death = "Death"
+    case job = "Job"
+    case health = "Health"
+    case education = "Education"
 }
 

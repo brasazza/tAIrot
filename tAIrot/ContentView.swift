@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct IntroView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -15,53 +16,62 @@ struct IntroView: View {
     @State private var hideElements = false
     @State private var goToMainView = false
     @State private var showMainView = false
-
+    
     var body: some View {
         ZStack {
             if colorScheme == .dark {
-                Image("blackbg")
-                    .resizable()
-                    .scaledToFill()
-                    .edgesIgnoringSafeArea(.all)
+                LinearGradient(
+                    gradient: Gradient(stops: [
+                        .init(color: Color(hex: "000000"), location: 0),
+                        .init(color: Color(hex: "180027"), location: 0.4),
+                        .init(color: Color(hex: "180027"), location: 0.6),
+                        .init(color: Color(hex: "000000"), location: 1)
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
             } else {
-                Image("whitebg")
-                    .resizable()
-                    .scaledToFill()
-                    .edgesIgnoringSafeArea(.all)
+                LinearGradient(
+                    gradient: Gradient(stops: [
+                        .init(color: Color(hex: "000000"), location: 0),
+                        .init(color: Color(hex: "180027"), location: 0.4),
+                        .init(color: Color(hex: "180027"), location: 0.6),
+                        .init(color: Color(hex: "000000"), location: 1)
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
             }
 
             VStack {
                 Spacer()
 
-                Image("magicball")
+                Image("wizard4")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 80)
-                    .scaleEffect(isAnimating ? 3 : 0.5)
-                    .offset(y: moveImageUp ? -45 : 0)
-                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.4) : Color.black.opacity(0.4), radius: 14, x: 0, y: 2)
+                    .frame(width: 120, height: 120)
+                    .scaleEffect(isAnimating ? 5 : 1)
+                    .offset(y: moveImageUp ? -55 : 0)
                     .opacity(hideElements ? 0 : 1)
                     .animation(.easeInOut(duration: 1), value: isAnimating)
-
+                
+                
                 VStack {
-                    Text(NSLocalizedString("Predicting", comment: ""))
+                    Text(NSLocalizedString("The Seer", comment: ""))
                         .font(.custom("MuseoModerno", size: 40))
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                        .foregroundColor(colorScheme == .dark ? .white : .white)
                         .shadow(color: Color.white, radius: 10, x: 0, y: 0)
                         .opacity(showText && !hideElements ? 1 : 0)
                         .animation(.easeInOut(duration: 1), value: showText)
                         .padding(.bottom, -44)
 
-                    Text(NSLocalizedString("your Future", comment: ""))
-                        .font(.custom("MuseoModerno", size: 40))
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                        .shadow(color: Color.white, radius: 10, x: 0, y: 0)
-                        .opacity(showText && !hideElements ? 1 : 0)
-                        .animation(.easeInOut(duration: 1), value: showText)
                 }
 
                 Spacer()
             }
+            
             .opacity(goToMainView ? 0 : 2)
             .animation(.easeInOut(duration: 1), value: goToMainView)
             .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1)))
@@ -100,30 +110,59 @@ struct IntroView: View {
 }
 
 struct MainView: View {
+    @AppStorage("predictionCount") var predictionCount: Int = 0
     @Environment(\.colorScheme) var colorScheme
     @State private var isShowingMenu = false
     @State private var iconRotation: Double = 0 // Declare iconRotation here
     @State private var isMenuButtonBouncing = false
+    
+    private var predictionsLeft: Int {
+        max(0, 3 - predictionCount)
+    }
 
     let cards = [
-        Card(title: "Love",
-             description: "Cupid's got nothing on me! \nFire daring questions like: \n\n\"When will I meet 'the one'? \n \n\"Will my ex and I get back together?\"",
-             color: LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.8), Color.pink.opacity(0.8)]), startPoint: .top, endPoint: .bottom)),
-        Card(title: "Finance",
-             description: "Want a glimpse into your financial future? \nAsk questions like: \n\n\"What does my financial future look like?\" \n\n\"Am I ever going to win the lottery?\"",
-             color: LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.8), Color.yellow.opacity(0.8)]), startPoint: .top, endPoint: .bottom)),
-        Card(title: "Relationships",
-             description: "Delve into matters of family and relationships. \n\n\"Will my relationship with my parents improve?\" \n\n\"Will my friendship last?\" \n\nLet's find out!",
-             color: LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(0.8), Color.orange.opacity(0.8)]), startPoint: .top, endPoint: .bottom)),
-        Card(title: "Job",
-             description: "Keen to discover your professional destiny? \nFire questions like: \n\n\"Will I get a promotion soon?\" \n \n\"Will my business idea be successful?\"",
-             color: LinearGradient(gradient: Gradient(colors: [Color.orange.opacity(0.8), Color.brown.opacity(0.8)]), startPoint: .top, endPoint: .bottom)),
-        Card(title: "Health",
-             description: "Want to peek into your health's future? \nAsk questions like: \n\n\"What health challenges might I face in the future?\" \n \n\"Will my mental health improve?\"",
-             color: LinearGradient(gradient: Gradient(colors: [Color(red: 0/255, green: 0/255, blue: 128/255), Color(red: 173/255, green: 216/255, blue: 230/255)]), startPoint: .top, endPoint: .bottom)),
-        Card(title: "Death",
-             description: "Brave enough to face life's deepest truths? \nCourageously ask me things like: \n\n\"How will I die?\" \n \n\"How can I come to terms with my mortality?\" \n\n Warning: You might not like the answer.",
-             color: LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.8), Color.gray.opacity(0.8)]), startPoint: .top, endPoint: .bottom))
+        Card(
+            title: NSLocalizedString("Love", comment: ""),
+            description: NSLocalizedString("Cupid's got nothing on me! \nFire daring questions like: \n\n\"When will I meet 'the one'? \n \n\"Will my ex and I get back together?\"", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color.red.opacity(1), Color.pink.opacity(1)]), startPoint: .top, endPoint: .bottom),
+            type: .love
+        ),
+        Card(
+            title: NSLocalizedString("Finance", comment: ""),
+            description: NSLocalizedString("Want a glimpse into your financial future? \nAsk questions like: \n\n\"What does my financial future look like?\" \n\n\"Am I ever going to win the lottery?\"", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color.green.opacity(1), Color.yellow.opacity(1)]), startPoint: .top, endPoint: .bottom),
+            type: .finance
+        ),
+        Card(
+            title: NSLocalizedString("Relationships", comment: ""),
+            description: NSLocalizedString("Delve into matters of family and relationships. \n\n\"Will my relationship with my parents improve?\" \n\n\"Will my friendship last?\" \n\nLet's find out!", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color.yellow.opacity(1), Color.orange.opacity(1)]), startPoint: .top, endPoint: .bottom),
+            type: .relationships
+        ),
+        Card(
+            title: NSLocalizedString("Health", comment: ""),
+            description: NSLocalizedString("Want to peek into your health's future? \nAsk questions like: \n\n\"What health challenges might I face in the future?\" \n \n\"Will my mental health improve?\"", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color(red: 0/255, green: 0/255, blue: 128/255), Color(red: 173/255, green: 216/255, blue: 230/255)]), startPoint: .top, endPoint: .bottom),
+            type: .health
+        ),
+        Card(
+            title: NSLocalizedString("Job", comment: ""),
+            description: NSLocalizedString("Keen to discover your professional destiny? \nFire questions like: \n\n\"Will I get a promotion soon?\" \n \n\"Will my business idea be successful?\"", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color.orange.opacity(1), Color.brown.opacity(1)]), startPoint: .top, endPoint: .bottom),
+            type: .job
+        ),
+        Card(
+            title: NSLocalizedString("Education", comment: ""),
+            description: NSLocalizedString("Looking for insights into your educational journey? \nAsk questions like: \n\n\"What areas of study should I focus on?\" \n \n\"Will I be successful in my upcoming exams?\"", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color(red: 30/255, green: 144/255, blue: 255/255), Color(red: 240/255, green: 248/255, blue: 255/255)]), startPoint: .top, endPoint: .bottom),
+            type: .education
+        ),
+        Card(
+            title: NSLocalizedString("Death", comment: ""),
+            description: NSLocalizedString("Brave enough to face life's deepest truths? \nCourageously ask me things like: \n\n\"How will I die?\" \n \n\"How can I come to terms with my mortality?\" \n\n Warning: You might not like the answer.", comment: ""),
+            color: LinearGradient(gradient: Gradient(colors: [Color.black.opacity(1), Color.gray.opacity(1)]), startPoint: .top, endPoint: .bottom),
+            type: .death
+        )
     ]
 
     var shadowColor: Color {
@@ -186,7 +225,7 @@ struct MainView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         HStack {
-                            Text("FuturAI")
+                            Text("The Seer")
                                 .font(.custom("MuseoModerno", size: 35))
                                 .font(.headline)
                                 .padding(.vertical, 20)
@@ -198,6 +237,7 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        impactFeedback()
                         withAnimation(.spring()) {
                             isShowingMenu.toggle()
                             iconRotation += 180 // Rotate the icon by 180 degrees
@@ -213,6 +253,10 @@ struct MainView: View {
                             .rotationEffect(.degrees(iconRotation)) // Apply rotation effect
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) { // Put it in the leading side of the navigation bar
+                        Text("🔮 \(predictionsLeft)")
+                        .font(.custom("MuseoModerno", size:27))
+                    }
             }
             .navigationBarBackButtonHidden(true) // Oculta el botón de retroceso
 
@@ -233,6 +277,11 @@ struct SideMenu: View {
     @Binding var isShowingMenu: Bool
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("isDarkMode") private var isDarkMode = false
+    let emailAddress = "theseerapplication@gmail.com"
+
+    var isSystemInDarkMode: Bool {
+        return colorScheme == .dark
+    }
 
     var body: some View {
         ZStack {
@@ -243,39 +292,87 @@ struct SideMenu: View {
             }
 
             VStack(alignment: .leading, spacing: 40) {
-                
+
                 Button(action: {
                     print("Block Ads tapped")
                 }) {
-                    Text(NSLocalizedString("Block Ads", comment: ""))
-                        .font(.headline)
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    HStack {
+                        Image(systemName: "shield.fill")
+                        Text(NSLocalizedString("Block Ads", comment: ""))
+                            .font(.headline)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    }
                 }
-                 
+
+
                 Button(action: {
                     print("Restore Purchase tapped")
                 }) {
-                    Text(NSLocalizedString("Restore Purchase", comment: ""))
-                        .font(.headline)
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    HStack {
+                        Image(systemName: "arrow.clockwise.circle.fill")
+                        Text(NSLocalizedString("Restore Purchase", comment: ""))
+                            .font(.headline)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    }
                 }
 
                 Button(action: {
-                    print("Contact Us tapped")
+                    if let url = URL(string: "https://www.instagram.com/TheSeerApp/") {
+                        UIApplication.shared.open(url)
+                    }
                 }) {
-                    Text(NSLocalizedString("Contact Us", comment: ""))
-                        .font(.headline)
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    HStack {
+                        Image("InstaSideMenu")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                        Text(NSLocalizedString("Instagram", comment: ""))
+                            .font(.headline)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    }
                 }
 
+                Button(action: {
+                    if let url = URL(string: "https://twitter.com/TheSeerApp") {
+                        UIApplication.shared.open(url)
+                    }
+                }) {
+                    HStack {
+                        Image("TwitterSideMenu")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                        Text(NSLocalizedString("Twitter", comment: ""))
+                            .font(.headline)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    }
+                }
+
+
+                Button(action: {
+                    if let url = URL(string: "mailto:theseerapplication@gmail.com") {
+                        UIApplication.shared.open(url)
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: "envelope.fill")
+                        Text(NSLocalizedString("Contact Us", comment: ""))
+                            .font(.headline)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
+                    }
+                }
+
+
                 Spacer() // Spacer principal aquí
-                
+
                 Toggle(isOn: $isDarkMode) {
                     HStack {
-                        Image(systemName: isDarkMode ? "sun.max.fill" : "moon.stars.fill")
+                        Image(systemName: isDarkMode ? "moon.stars.fill" : "sun.max.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 20, height: 20)
@@ -286,10 +383,15 @@ struct SideMenu: View {
                             .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
                     }
                 }
+                .onAppear {
+                    self.isDarkMode = self.isSystemInDarkMode
+                }
                 .onChange(of: isDarkMode) { newValue in
                     if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
                         scene.windows.first?.overrideUserInterfaceStyle = newValue ? .dark : .light
+                        impactFeedback()
                     }
+                    isDarkMode = newValue
                 }
                 .padding(.bottom, 100)  // Agrega el padding que necesites aquí.
             }
@@ -300,6 +402,7 @@ struct SideMenu: View {
         .offset(x: isShowingMenu ? UIScreen.main.bounds.width / -4.8 : -UIScreen.main.bounds.width)
     }
 }
+
 
 struct ContentView: View {
     var body: some View {
@@ -314,3 +417,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+

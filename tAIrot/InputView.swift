@@ -6,24 +6,40 @@
 //
 
 import SwiftUI
+import UIKit
 import Alamofire
+import FirebaseRemoteConfig
 
 struct InputView: View {
     let card: Card
+    @AppStorage("predictionCount") var predictionCount: Int = 0
+    @AppStorage("lastPredictionTimestamp") var lastPredictionTimestamp: Double = Date().timeIntervalSince1970
+        var lastPredictionDate: Date {
+            get {
+                return Date(timeIntervalSince1970: lastPredictionTimestamp)
+            }
+            set {
+                lastPredictionTimestamp = newValue.timeIntervalSince1970
+            }
+        }
     @State private var name: String = ""
     @State private var age: String = ""
     @State private var question: String = ""
     @State private var from: String = ""
     @State private var context: String = ""
     @State private var showResult: Bool = false
-    @State private var prediction: (String, Card) = ("", Card(title: "", description: "", color: LinearGradient(gradient: Gradient(colors: []), startPoint: .top, endPoint: .bottom)))
+    @State private var prediction: (String, Card) = ("", Card(title: "", description: "", color: LinearGradient(gradient: Gradient(colors: []), startPoint: .top, endPoint: .bottom), type: .love))
     @State private var isLoading: Bool = false
     @State private var showMagicDust = false
     @State private var isKeyboardShowing: Bool = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) var colorScheme
+    @State private var textScaleFactor: CGFloat = 1.0  // Nuevo estado para el factor de escala del texto
 
     private let openAIService = OpenAIService.shared
+    private let remoteConfigService = RemoteConfigService.shared
 
     @FocusState private var focusedField: Field?
     private enum Field: Hashable {
@@ -31,14 +47,22 @@ struct InputView: View {
     }
 
     func createPrompt(name: String, age: Int, from: String, context: String, question: String) -> String {
-        return "Fictional: Imagine you are Nostradamus. My name is \(name), I am \(age)years old, I am from \(from), context about me: \(context) in the aspect of \(card.title). Focus on this question: \(question). Don't ever mention it's fictional. Don't mention your name. Be specific with details and give a concrete answer. Give me fear or joy, surprise me. 400 characters top."
-    }
+            let promptTemplate = RemoteConfigService.shared.getString(for: "promptTemplate")
+            var prompt = promptTemplate
+            prompt = prompt.replacingOccurrences(of: "{name}", with: "\(name)")
+            prompt = prompt.replacingOccurrences(of: "{age}", with: "\(age)")
+            prompt = prompt.replacingOccurrences(of: "{from}", with: "\(from)")
+            prompt = prompt.replacingOccurrences(of: "{context}", with: "\(context)")
+            prompt = prompt.replacingOccurrences(of: "{card.title}", with: "\(card.title)")
+            prompt = prompt.replacingOccurrences(of: "{question}", with: "\(question)")
+            return prompt
+        }
     
     var body: some View {
         ZStack {
             NavigationView {
                 VStack(spacing: 20) {
-                    TextField("Name", text: $name)
+                    TextField(NSLocalizedString("Name", comment: ""), text: $name)
                         .focused($focusedField, equals: .name)
                         .onSubmit {
                             focusedField = .age
@@ -51,7 +75,7 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
 
-                    TextField("Age", text: $age)
+                    TextField(NSLocalizedString("Age", comment: ""), text: $age)
                         .keyboardType(.numberPad)
                         .focused($focusedField, equals: .age)
                         .onSubmit {
@@ -65,7 +89,7 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
                     
-                    TextField("Where are you from?", text: $from)
+                    TextField(NSLocalizedString("Where are you from?", comment: ""), text: $from)
                         .focused($focusedField, equals: .from)
                         .onSubmit {
                             focusedField = .context
@@ -78,7 +102,7 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
 
-                    TextField("Any context needed? If not, leave blank.", text: $context)
+                    TextField(NSLocalizedString("Any context needed? If not, leave blank.", comment: ""), text: $context)
                         .focused($focusedField, equals: .context)
                         .onSubmit {
                             focusedField = .question
@@ -91,7 +115,7 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
 
-                    TextField("What do you want to know about your future?", text: $question)
+                    TextField(NSLocalizedString("What do you want to know about your future?", comment: ""), text: $question)
                         .focused($focusedField, equals: .question)
                         .onSubmit {
                             focusedField = nil
@@ -105,10 +129,22 @@ struct InputView: View {
                         )
 
                     Button(action: {
+                        let currentMonth = Calendar.current.component(.month, from: Date())
+                        let lastPredictionMonth = Calendar.current.component(.month, from: lastPredictionDate)
+                        if currentMonth != lastPredictionMonth {
+                                predictionCount = 0
+                                self.lastPredictionTimestamp = Date().timeIntervalSince1970
+                            }
                         print("Button tapped!")
+                        impactFeedback()
                         isLoading = true
                         showMagicDust = true
-                        if let ageNumber = Int(age) {
+                        if name.isEmpty || age.isEmpty || question.isEmpty {
+                            self.alertMessage = NSLocalizedString("missing_info_message", comment: "")
+                            self.showAlert = true
+                            self.isLoading = false
+                            self.showMagicDust = false
+                        } else if let ageNumber = Int(age) {
                             let prompt = createPrompt(name: name, age: ageNumber, from: from, context: context, question: question)
                             openAIService.createChatCompletion(prompt: prompt)
                             { result in
@@ -119,6 +155,8 @@ struct InputView: View {
                                         self.isLoading = false
                                         self.showMagicDust = false
                                         self.showResult.toggle()
+                                        self.predictionCount += 1
+                                        self.lastPredictionTimestamp = Date().timeIntervalSince1970
                                     }
                                 case .failure(let error):
                                     print(error.localizedDescription)
@@ -131,7 +169,8 @@ struct InputView: View {
                             self.isLoading = false
                         }
                     }) {
-                        Text(isLoading ? "Predicting...🔮" : "Guess My Future 🔮")
+            
+                        Text(isLoading ? NSLocalizedString("Predicting...🔮", comment: "") : NSLocalizedString("Guess My Future 🔮", comment: ""))
                             .font(.title2)
                             .foregroundColor(.white)
                             .padding()
@@ -148,16 +187,18 @@ struct InputView: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         VStack {
-                            Text("Enter your details")
+                            Text(NSLocalizedString("Enter your details", comment: ""))
                                 .font(.custom("MuseoModerno", size: 30))
                                 .font(.headline)
-                                .padding(.top, 120)
+                                .scaleEffect(textScaleFactor)  // Aplicar el factor de escala al texto
+                                .padding()
                             if isKeyboardShowing {
-                                Spacer(minLength: 170)
-                            }
-                        }
-                    }
-                }
+                                Spacer(minLength: 80)
+            }
+        }
+    }
+}
+
                 .padding(.vertical, 20)
                 .frame(height: 70)
                 .background(
@@ -183,6 +224,11 @@ struct InputView: View {
                     // Fallback on earlier versions
                 }
             }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(NSLocalizedString("missing_info_title", comment: "")),
+                      message: Text(alertMessage),
+                      dismissButton: .default(Text(NSLocalizedString("ok_button", comment: ""))))
+            }
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
                 withAnimation {
                     isKeyboardShowing = true
@@ -193,7 +239,19 @@ struct InputView: View {
                     isKeyboardShowing = false
                 }
             }
-            .onTapGesture {
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                withAnimation {
+                    isKeyboardShowing = true
+                    textScaleFactor = 0.7  // Hacer que el texto sea más pequeño cuando el teclado está visible
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                withAnimation {
+                    isKeyboardShowing = false
+                    textScaleFactor = 1.0  // Restablecer el tamaño del texto cuando el teclado se oculta
+                }
+            }
+            .onTapGesture(count: 2) {
                 self.isKeyboardShowing = false
                 hideKeyboard()
             }
@@ -250,6 +308,10 @@ extension View {
     }
 }
 
+func impactFeedback() {
+       let generator = UIImpactFeedbackGenerator(style: .medium)
+       generator.impactOccurred()
+   }
 
 #if canImport(UIKit)
 extension View {
