@@ -1,0 +1,858 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030BD78B4305E44A49F1B223 /* Pods_tAIrot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */; };
+		5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E887EF92A15C01600D2B565 /* OpenAIService.swift */; };
+		5E9F519E2A3507660057E5DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E9F51A22A3507660057E5DE /* Localizable.strings */; };
+		5E9F519F2A3507660057E5DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E9F51A22A3507660057E5DE /* Localizable.strings */; };
+		5E9F51A02A3507660057E5DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E9F51A22A3507660057E5DE /* Localizable.strings */; };
+		5E9F51A52A3569F10057E5DE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F51A42A3569F10057E5DE /* ColorExtension.swift */; };
+		5E9F51A62A3569F10057E5DE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F51A42A3569F10057E5DE /* ColorExtension.swift */; };
+		5E9F51A72A3569F10057E5DE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F51A42A3569F10057E5DE /* ColorExtension.swift */; };
+		5EA811B62A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811B82A17FBDA00D06FCF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B52A17FBDA00D06FCF /* CardView.swift */; };
+		5EA811BA2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811BB2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811BC2A18118B00D06FCF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA811B92A18118B00D06FCF /* Card.swift */; };
+		5EA811C32A280C7400D06FCF /* IGStoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5EA811C22A280C7400D06FCF /* IGStoryKit */; };
+		5EA811C72A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
+		5EA811C82A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
+		5EA811C92A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */; };
+		5EC7E2172A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E2162A429BCE00F81BB2 /* GoogleService-Info.plist */; };
+		5EC7E2182A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E2162A429BCE00F81BB2 /* GoogleService-Info.plist */; };
+		5EC7E2192A429BCF00F81BB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E2162A429BCE00F81BB2 /* GoogleService-Info.plist */; };
+		5EC7E21C2A429EEC00F81BB2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC7E21B2A429EEC00F81BB2 /* FirebaseAnalytics */; };
+		5EC7E21E2A429EEC00F81BB2 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC7E21D2A429EEC00F81BB2 /* FirebaseAnalyticsSwift */; };
+		5EC7E2202A429EEC00F81BB2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC7E21F2A429EEC00F81BB2 /* FirebaseRemoteConfig */; };
+		5EC7E2222A429EEC00F81BB2 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC7E2212A429EEC00F81BB2 /* FirebaseRemoteConfigSwift */; };
+		5EC7E2242A42A87700F81BB2 /* RemoteConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */; };
+		5EC7E2252A42A87700F81BB2 /* RemoteConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */; };
+		5EC7E2262A42A87700F81BB2 /* RemoteConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */; };
+		5EC7E2282A4D5C3000F81BB2 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */; };
+		5EC7E2292A4D5C3000F81BB2 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */; };
+		5EC7E22A2A4D5C3000F81BB2 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */; };
+		5EC7E22C2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
+		5EC7E22D2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
+		5EC7E22E2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
+		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
+		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
+		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
+		5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3682A15555D00328861 /* Preview Assets.xcassets */; };
+		5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3722A15555D00328861 /* tAIrotTests.swift */; };
+		5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */; };
+		5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */; };
+		5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38B2A15561600328861 /* AspectButton.swift */; };
+		5EEBF3902A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3912A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3922A155E6F00328861 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF38F2A155E6F00328861 /* InputView.swift */; };
+		5EEBF3942A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
+		5EEBF3952A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
+		5EEBF3962A155EC700328861 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3932A155EC700328861 /* ResultView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EEBF36F2A15555D00328861 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EEBF3562A15555C00328861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EEBF35D2A15555C00328861;
+			remoteInfo = tAIrot;
+		};
+		5EEBF3792A15555D00328861 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EEBF3562A15555C00328861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EEBF35D2A15555C00328861;
+			remoteInfo = tAIrot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tAIrot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tAIrot.release.xcconfig"; path = "Target Support Files/Pods-tAIrot/Pods-tAIrot.release.xcconfig"; sourceTree = "<group>"; };
+		5E887EF92A15C01600D2B565 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		5E9F51A12A3507660057E5DE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5E9F51A32A3508120057E5DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5E9F51A42A3569F10057E5DE /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		5EA811B52A17FBDA00D06FCF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5EA811B92A18118B00D06FCF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5EA811C42A280D7300D06FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoModerno-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5EC7E2162A429BCE00F81BB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigService.swift; sourceTree = "<group>"; };
+		5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
+		5EEBF35E2A15555C00328861 /* The Seer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Seer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
+		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5EEBF3652A15555D00328861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EEBF3682A15555D00328861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5EEBF36E2A15555D00328861 /* The SeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The SeerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF3722A15555D00328861 /* tAIrotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotTests.swift; sourceTree = "<group>"; };
+		5EEBF3782A15555D00328861 /* The SeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The SeerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITests.swift; sourceTree = "<group>"; };
+		5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5EEBF38B2A15561600328861 /* AspectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectButton.swift; sourceTree = "<group>"; };
+		5EEBF38F2A155E6F00328861 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		5EEBF3932A155EC700328861 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tAIrot.debug.xcconfig"; path = "Target Support Files/Pods-tAIrot/Pods-tAIrot.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EEBF35B2A15555C00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC7E21E2A429EEC00F81BB2 /* FirebaseAnalyticsSwift in Frameworks */,
+				030BD78B4305E44A49F1B223 /* Pods_tAIrot.framework in Frameworks */,
+				5EA811C32A280C7400D06FCF /* IGStoryKit in Frameworks */,
+				5EC7E2222A429EEC00F81BB2 /* FirebaseRemoteConfigSwift in Frameworks */,
+				5EC7E21C2A429EEC00F81BB2 /* FirebaseAnalytics in Frameworks */,
+				5EC7E2202A429EEC00F81BB2 /* FirebaseRemoteConfig in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36B2A15555D00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3752A15555D00328861 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25DA0BBC4944814BD1DBE7D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */,
+				3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5EA811C52A280F3200D06FCF /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5EA811C62A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		5EEBF3552A15555C00328861 = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3602A15555C00328861 /* tAIrot */,
+				5EEBF3712A15555D00328861 /* tAIrotTests */,
+				5EEBF37B2A15555D00328861 /* tAIrotUITests */,
+				5EEBF35F2A15555C00328861 /* Products */,
+				25DA0BBC4944814BD1DBE7D9 /* Pods */,
+				6B55D2BCA53031F55578895F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5EEBF35F2A15555C00328861 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF35E2A15555C00328861 /* The Seer.app */,
+				5EEBF36E2A15555D00328861 /* The SeerTests.xctest */,
+				5EEBF3782A15555D00328861 /* The SeerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EEBF3602A15555C00328861 /* tAIrot */ = {
+			isa = PBXGroup;
+			children = (
+				5EC7E2162A429BCE00F81BB2 /* GoogleService-Info.plist */,
+				5EA811C42A280D7300D06FCF /* Info.plist */,
+				5EA811C52A280F3200D06FCF /* Font */,
+				5EEBF3612A15555C00328861 /* tAIrotApp.swift */,
+				5EEBF3632A15555C00328861 /* ContentView.swift */,
+				5EEBF3652A15555D00328861 /* Assets.xcassets */,
+				5EEBF3672A15555D00328861 /* Preview Content */,
+				5EEBF38B2A15561600328861 /* AspectButton.swift */,
+				5EEBF38F2A155E6F00328861 /* InputView.swift */,
+				5EEBF3932A155EC700328861 /* ResultView.swift */,
+				5E887EF92A15C01600D2B565 /* OpenAIService.swift */,
+				5EA811B52A17FBDA00D06FCF /* CardView.swift */,
+				5EA811B92A18118B00D06FCF /* Card.swift */,
+				5E9F51A22A3507660057E5DE /* Localizable.strings */,
+				5E9F51A42A3569F10057E5DE /* ColorExtension.swift */,
+				5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */,
+				5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */,
+				5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */,
+			);
+			path = tAIrot;
+			sourceTree = "<group>";
+		};
+		5EEBF3672A15555D00328861 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3682A15555D00328861 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5EEBF3712A15555D00328861 /* tAIrotTests */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF3722A15555D00328861 /* tAIrotTests.swift */,
+			);
+			path = tAIrotTests;
+			sourceTree = "<group>";
+		};
+		5EEBF37B2A15555D00328861 /* tAIrotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF37C2A15555D00328861 /* tAIrotUITests.swift */,
+				5EEBF37E2A15555D00328861 /* tAIrotUITestsLaunchTests.swift */,
+			);
+			path = tAIrotUITests;
+			sourceTree = "<group>";
+		};
+		6B55D2BCA53031F55578895F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37DC647D2377F3D990161EFC /* Pods_tAIrot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EEBF35D2A15555C00328861 /* The Seer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3822A15555D00328861 /* Build configuration list for PBXNativeTarget "The Seer" */;
+			buildPhases = (
+				00DF55FCBE1BB71B9345EED5 /* [CP] Check Pods Manifest.lock */,
+				5EEBF35A2A15555C00328861 /* Sources */,
+				5EEBF35B2A15555C00328861 /* Frameworks */,
+				5EEBF35C2A15555C00328861 /* Resources */,
+				F9ECF6DE28E5685CE6672E44 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "The Seer";
+			packageProductDependencies = (
+				5EA811C22A280C7400D06FCF /* IGStoryKit */,
+				5EC7E21B2A429EEC00F81BB2 /* FirebaseAnalytics */,
+				5EC7E21D2A429EEC00F81BB2 /* FirebaseAnalyticsSwift */,
+				5EC7E21F2A429EEC00F81BB2 /* FirebaseRemoteConfig */,
+				5EC7E2212A429EEC00F81BB2 /* FirebaseRemoteConfigSwift */,
+			);
+			productName = tAIrot;
+			productReference = 5EEBF35E2A15555C00328861 /* The Seer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EEBF36D2A15555D00328861 /* The SeerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3852A15555D00328861 /* Build configuration list for PBXNativeTarget "The SeerTests" */;
+			buildPhases = (
+				5EEBF36A2A15555D00328861 /* Sources */,
+				5EEBF36B2A15555D00328861 /* Frameworks */,
+				5EEBF36C2A15555D00328861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EEBF3702A15555D00328861 /* PBXTargetDependency */,
+			);
+			name = "The SeerTests";
+			productName = tAIrotTests;
+			productReference = 5EEBF36E2A15555D00328861 /* The SeerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5EEBF3772A15555D00328861 /* The SeerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EEBF3882A15555D00328861 /* Build configuration list for PBXNativeTarget "The SeerUITests" */;
+			buildPhases = (
+				5EEBF3742A15555D00328861 /* Sources */,
+				5EEBF3752A15555D00328861 /* Frameworks */,
+				5EEBF3762A15555D00328861 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EEBF37A2A15555D00328861 /* PBXTargetDependency */,
+			);
+			name = "The SeerUITests";
+			productName = tAIrotUITests;
+			productReference = 5EEBF3782A15555D00328861 /* The SeerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EEBF3562A15555C00328861 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5EEBF35D2A15555C00328861 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					5EEBF36D2A15555D00328861 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5EEBF35D2A15555C00328861;
+					};
+					5EEBF3772A15555D00328861 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5EEBF35D2A15555C00328861;
+					};
+				};
+			};
+			buildConfigurationList = 5EEBF3592A15555C00328861 /* Build configuration list for PBXProject "The Seer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"es-419",
+			);
+			mainGroup = 5EEBF3552A15555C00328861;
+			packageReferences = (
+				5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */,
+				5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 5EEBF35F2A15555C00328861 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5EEBF35D2A15555C00328861 /* The Seer */,
+				5EEBF36D2A15555D00328861 /* The SeerTests */,
+				5EEBF3772A15555D00328861 /* The SeerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5EEBF35C2A15555C00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */,
+				5E9F519E2A3507660057E5DE /* Localizable.strings in Resources */,
+				5EC7E2172A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */,
+				5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */,
+				5EA811C72A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36C2A15555D00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA811C82A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
+				5E9F519F2A3507660057E5DE /* Localizable.strings in Resources */,
+				5EC7E2182A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3762A15555D00328861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA811C92A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
+				5E9F51A02A3507660057E5DE /* Localizable.strings in Resources */,
+				5EC7E2192A429BCF00F81BB2 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DF55FCBE1BB71B9345EED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tAIrot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9ECF6DE28E5685CE6672E44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tAIrot/Pods-tAIrot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EEBF35A2A15555C00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA811B62A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EEBF3642A15555C00328861 /* ContentView.swift in Sources */,
+				5EC7E2282A4D5C3000F81BB2 /* IAPManager.swift in Sources */,
+				5EEBF3902A155E6F00328861 /* InputView.swift in Sources */,
+				5EC7E2242A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
+				5EC7E22C2A4E42A400F81BB2 /* IAPView.swift in Sources */,
+				5E9F51A52A3569F10057E5DE /* ColorExtension.swift in Sources */,
+				5EEBF3942A155EC700328861 /* ResultView.swift in Sources */,
+				5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */,
+				5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */,
+				5E887EFA2A15C01600D2B565 /* OpenAIService.swift in Sources */,
+				5EA811BA2A18118B00D06FCF /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF36A2A15555D00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EEBF3912A155E6F00328861 /* InputView.swift in Sources */,
+				5EEBF3952A155EC700328861 /* ResultView.swift in Sources */,
+				5EA811BB2A18118B00D06FCF /* Card.swift in Sources */,
+				5E9F51A62A3569F10057E5DE /* ColorExtension.swift in Sources */,
+				5E887EFB2A15C01600D2B565 /* OpenAIService.swift in Sources */,
+				5EEBF3732A15555D00328861 /* tAIrotTests.swift in Sources */,
+				5EC7E2292A4D5C3000F81BB2 /* IAPManager.swift in Sources */,
+				5EC7E2252A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
+				5EC7E22D2A4E42A400F81BB2 /* IAPView.swift in Sources */,
+				5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EEBF3742A15555D00328861 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA811B82A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */,
+				5EC7E22A2A4D5C3000F81BB2 /* IAPManager.swift in Sources */,
+				5EEBF3922A155E6F00328861 /* InputView.swift in Sources */,
+				5EC7E2262A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
+				5EC7E22E2A4E42A400F81BB2 /* IAPView.swift in Sources */,
+				5E9F51A72A3569F10057E5DE /* ColorExtension.swift in Sources */,
+				5EEBF3962A155EC700328861 /* ResultView.swift in Sources */,
+				5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */,
+				5EEBF37F2A15555D00328861 /* tAIrotUITestsLaunchTests.swift in Sources */,
+				5E887EFC2A15C01600D2B565 /* OpenAIService.swift in Sources */,
+				5EA811BC2A18118B00D06FCF /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5EEBF3702A15555D00328861 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EEBF35D2A15555C00328861 /* The Seer */;
+			targetProxy = 5EEBF36F2A15555D00328861 /* PBXContainerItemProxy */;
+		};
+		5EEBF37A2A15555D00328861 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EEBF35D2A15555C00328861 /* The Seer */;
+			targetProxy = 5EEBF3792A15555D00328861 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5E9F51A22A3507660057E5DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E9F51A12A3507660057E5DE /* es-419 */,
+				5E9F51A32A3508120057E5DE /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5EEBF3802A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = "The Seer";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5EEBF3812A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = "The Seer";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EEBF3832A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C13107F158A0208F880BC3E /* Pods-tAIrot.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MT6TFTW824;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tAIrot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Seer";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save your card predictions as images in your photo library.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.theseer.theseer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EEBF3842A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E642DB3EF729ACE62D5BF0A /* Pods-tAIrot.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MT6TFTW824;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tAIrot/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "The Seer";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to save your card predictions as images in your photo library.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.theseer.theseer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5EEBF3862A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Seer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/The Seer";
+			};
+			name = Debug;
+		};
+		5EEBF3872A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Seer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/The Seer";
+			};
+			name = Release;
+		};
+		5EEBF3892A15555D00328861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tAIrot;
+			};
+			name = Debug;
+		};
+		5EEBF38A2A15555D00328861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brasazza.tAIrotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tAIrot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EEBF3592A15555C00328861 /* Build configuration list for PBXProject "The Seer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3802A15555D00328861 /* Debug */,
+				5EEBF3812A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3822A15555D00328861 /* Build configuration list for PBXNativeTarget "The Seer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3832A15555D00328861 /* Debug */,
+				5EEBF3842A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3852A15555D00328861 /* Build configuration list for PBXNativeTarget "The SeerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3862A15555D00328861 /* Debug */,
+				5EEBF3872A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EEBF3882A15555D00328861 /* Build configuration list for PBXNativeTarget "The SeerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEBF3892A15555D00328861 /* Debug */,
+				5EEBF38A2A15555D00328861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwapnanilDhol/IGStoryKit";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
+		5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EA811C22A280C7400D06FCF /* IGStoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EA811C12A280C7400D06FCF /* XCRemoteSwiftPackageReference "IGStoryKit" */;
+			productName = IGStoryKit;
+		};
+		5EC7E21B2A429EEC00F81BB2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5EC7E21D2A429EEC00F81BB2 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		5EC7E21F2A429EEC00F81BB2 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		5EC7E2212A429EEC00F81BB2 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EC7E21A2A429EEC00F81BB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5EEBF3562A15555C00328861 /* Project object */;
+}
