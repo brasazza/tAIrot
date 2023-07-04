@@ -16,6 +16,7 @@ struct Card: Identifiable {
 }
 
 enum CardType: String {
+    case personal = "Personal"
     case love = "Love"
     case finance = "Finance"
     case relationships = "Relationships"

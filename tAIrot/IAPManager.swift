@@ -7,44 +7,63 @@
 
 import Foundation
 import StoreKit
+import Combine
 
-class IAPManager: ObservableObject {
+class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
     let annualSubscriptionProductID = "unlimited_predictions_lifetime"
     let monthlySubscriptionProductID = "unlimited_predictions_monthly"
     let individualPredictionProductID = "single_prediction"
 
-    @Published var annualSubscription: Product?
-    @Published var monthlySubscription: Product?
-    @Published var individualPrediction: Product?
+    @Published var annualSubscription: SKProduct?
+    @Published var monthlySubscription: SKProduct?
+    @Published var individualPrediction: SKProduct?
+    @Published var purchaseEvents = PassthroughSubject<String, Never>()
 
     private var transactionListener: Task<Void, Never>?
+    private let storeObserver = StoreObserver()
+    
+    var onSinglePredictionPurchased: (() -> Void)?
 
-    init() {
+    override init() {
+        super.init()
+        SKPaymentQueue.default().add(storeObserver)
         startListeningForTransactions()
     }
 
     deinit {
+        SKPaymentQueue.default().remove(storeObserver)
         transactionListener?.cancel()
     }
 
-    func fetchProducts() async throws {
+    func fetchProducts() {
         let productIDs = Set([annualSubscriptionProductID, monthlySubscriptionProductID, individualPredictionProductID])
-        let products = try await Product.products(for: productIDs)
-        
-        for product in products {
-            if product.id == annualSubscriptionProductID {
-                self.annualSubscription = product
-            } else if product.id == monthlySubscriptionProductID {
-                self.monthlySubscription = product
-            } else if product.id == individualPredictionProductID {
-                self.individualPrediction = product
+        let request = SKProductsRequest(productIdentifiers: productIDs)
+        request.delegate = self
+        request.start()
+    }
+
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        for product in response.products {
+            if product.productIdentifier == annualSubscriptionProductID {
+                DispatchQueue.main.async {
+                    self.annualSubscription = product
+                }
+            } else if product.productIdentifier == monthlySubscriptionProductID {
+                DispatchQueue.main.async {
+                    self.monthlySubscription = product
+                }
+            } else if product.productIdentifier == individualPredictionProductID {
+                DispatchQueue.main.async {
+                    self.individualPrediction = product
+                }
             }
         }
     }
 
-    func buyProduct(_ product: Product) async throws {
-        let result = try await product.purchase()
-        // Handle the result of purchase here.
+    func buyProduct(_ product: SKProduct) {
+        print("Initiating purchase for product: \(product.productIdentifier)")
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(payment)
     }
 
     // Start listening for transaction updates
@@ -55,8 +74,10 @@ class IAPManager: ObservableObject {
                 case .unverified(_, let error):
                     // The local transaction verification failed, you should log or handle the error
                     print("Failed to verify transaction: \(error)")
+                    print("Transaction type: unverified")
                 case .verified(let transaction):
                     // The transaction was verified, you can now check the product id
+                    print("Transaction type: verified")
                     handleTransaction(transaction)
                 }
             }
@@ -71,9 +92,18 @@ class IAPManager: ObservableObject {
         } else if transaction.productID == self.individualPredictionProductID {
             // Handle individual prediction transactions
             print("Individual prediction was purchased.")
+            print("Calling onSinglePredictionPurchased closure.")
+            onSinglePredictionPurchased?()
         }
     }
 }
+
+
+    
+
+
+
+
 
 
 

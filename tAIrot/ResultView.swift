@@ -129,14 +129,16 @@ struct ResultView: View {
 
                 VStack {
                     VStack(alignment: .center, spacing: 10) {
-                        Text(String(format: NSLocalizedString("%@'s Future 🔮", comment: ""), name))
+                        Text(String(format: NSLocalizedString("%@'s Destiny 🔮", comment: ""), name))
                             .font(.title)
+                            .shadow(color: Color.black.opacity(0.5), radius: 4, x: 0, y: 2)
                             .bold()
                             .foregroundColor(.white)
                         
                         Text("\"\(question)\"")
                             .font(.title3)
                             .italic()
+                            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                     }
@@ -146,6 +148,7 @@ struct ResultView: View {
                         Spacer()
                         Text(prediction)
                             .font(.title2)
+                            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 500)
@@ -157,6 +160,7 @@ struct ResultView: View {
                     // Aquí agregamos el texto
                     Text("The Seer App 🔮")
                         .font(.custom("MuseoModerno", size: 20))
+                        .shadow(color: Color.black.opacity(0.4), radius: 4, x: 0, y: 2)
                         .bold()
                         .foregroundColor(.white)  // También puedes cambiar el color
                         .padding(.bottom, -24)
@@ -190,7 +194,7 @@ struct ResultView: View {
                         }
                         imageSaver.writeToPhotoAlbum(image: image)
                     }) {
-                        Image(systemName: "arrow.down.app")
+                        Image(systemName: "square.and.arrow.down")
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
@@ -206,12 +210,13 @@ struct ResultView: View {
                     Button(action: {
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
-                                            
-                        let story = IGStory(contentSticker: image, background: .color(color: .systemOrange))
-
-                        let dispatcher = IGDispatcher(story: story, facebookAppID: "2503996109776287")
-                        dispatcher.start()
-                    }) {
+                        
+                        if let backgroundImage = UIImage(named: "blackbg") {
+                            let story = IGStory(contentSticker: image, background: .image(image: backgroundImage))
+                            
+                            let dispatcher = IGDispatcher(story: story, facebookAppID: "2503996109776287")
+                            dispatcher.start()
+                        }}) {
                         Image("Instagram") // Using Instagram icon image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -275,6 +280,3 @@ struct ResultView: View {
         }
     }
 }
-
-
-

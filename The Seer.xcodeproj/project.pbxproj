@@ -43,6 +43,12 @@
 		5EC7E22C2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
 		5EC7E22D2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
 		5EC7E22E2A4E42A400F81BB2 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */; };
+		5EC7E2302A4F682800F81BB2 /* The Seer App.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */; };
+		5EC7E2312A4F682800F81BB2 /* The Seer App.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */; };
+		5EC7E2322A4F682800F81BB2 /* The Seer App.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */; };
+		5EC7E2342A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
+		5EC7E2352A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
+		5EC7E2362A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
 		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
 		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
 		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
@@ -93,6 +99,8 @@
 		5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigService.swift; sourceTree = "<group>"; };
 		5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
+		5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "The Seer App.storekit"; sourceTree = "<group>"; };
+		5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
 		5EEBF35E2A15555C00328861 /* The Seer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Seer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
 		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +208,8 @@
 				5EC7E2232A42A87700F81BB2 /* RemoteConfigService.swift */,
 				5EC7E2272A4D5C3000F81BB2 /* IAPManager.swift */,
 				5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */,
+				5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */,
+				5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */,
 			);
 			path = tAIrot;
 			sourceTree = "<group>";
@@ -358,6 +368,7 @@
 				5EEBF3692A15555D00328861 /* Preview Assets.xcassets in Resources */,
 				5E9F519E2A3507660057E5DE /* Localizable.strings in Resources */,
 				5EC7E2172A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */,
+				5EC7E2302A4F682800F81BB2 /* The Seer App.storekit in Resources */,
 				5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */,
 				5EA811C72A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
 			);
@@ -368,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA811C82A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
+				5EC7E2312A4F682800F81BB2 /* The Seer App.storekit in Resources */,
 				5E9F519F2A3507660057E5DE /* Localizable.strings in Resources */,
 				5EC7E2182A429BCE00F81BB2 /* GoogleService-Info.plist in Resources */,
 			);
@@ -378,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA811C92A280F6100D06FCF /* MuseoModerno-VariableFont_wght.ttf in Resources */,
+				5EC7E2322A4F682800F81BB2 /* The Seer App.storekit in Resources */,
 				5E9F51A02A3507660057E5DE /* Localizable.strings in Resources */,
 				5EC7E2192A429BCF00F81BB2 /* GoogleService-Info.plist in Resources */,
 			);
@@ -433,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA811B62A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EC7E2342A51381F00F81BB2 /* StoreObserver.swift in Sources */,
 				5EEBF3642A15555C00328861 /* ContentView.swift in Sources */,
 				5EC7E2282A4D5C3000F81BB2 /* IAPManager.swift in Sources */,
 				5EEBF3902A155E6F00328861 /* InputView.swift in Sources */,
@@ -462,6 +476,7 @@
 				5EC7E22D2A4E42A400F81BB2 /* IAPView.swift in Sources */,
 				5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */,
 				5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */,
+				5EC7E2352A51381F00F81BB2 /* StoreObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA811B82A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EC7E2362A51381F00F81BB2 /* StoreObserver.swift in Sources */,
 				5EEBF37D2A15555D00328861 /* tAIrotUITests.swift in Sources */,
 				5EC7E22A2A4D5C3000F81BB2 /* IAPManager.swift in Sources */,
 				5EEBF3922A155E6F00328861 /* InputView.swift in Sources */,
@@ -516,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -577,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

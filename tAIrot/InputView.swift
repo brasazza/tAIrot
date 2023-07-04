@@ -12,6 +12,7 @@ import FirebaseRemoteConfig
 
 struct InputView: View {
     let card: Card
+    @StateObject private var iapManager = IAPManager()
     @AppStorage("predictionCount") var predictionCount: Int = 0
     @AppStorage("lastPredictionTimestamp") var lastPredictionTimestamp: Double = Date().timeIntervalSince1970
         var lastPredictionDate: Date {
@@ -22,6 +23,19 @@ struct InputView: View {
                 lastPredictionTimestamp = newValue.timeIntervalSince1970
             }
         }
+    @AppStorage("hasMonthlySubscription") var hasMonthlySubscription: Bool = false
+    @AppStorage("hasAnnualSubscription") var hasAnnualSubscription: Bool = false
+    @AppStorage("purchasedPredictionCount") var purchasedPredictionCount: Int = 0
+
+    var predictionsLeft: String {
+        if hasMonthlySubscription || hasAnnualSubscription {
+            return "∞"
+        } else {
+            return String(max(0, predictionCount + purchasedPredictionCount))
+        }
+    }
+
+    @State private var isShowingIAPView: Bool = false
     @State private var name: String = ""
     @State private var age: String = ""
     @State private var question: String = ""
@@ -34,7 +48,7 @@ struct InputView: View {
     @State private var isKeyboardShowing: Bool = false
     @State private var showAlert = false
     @State private var alertMessage = ""
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.colorScheme) var colorScheme
     @State private var textScaleFactor: CGFloat = 1.0  // Nuevo estado para el factor de escala del texto
 
@@ -58,6 +72,54 @@ struct InputView: View {
             return prompt
         }
     
+    func makePrediction() {
+        print("makePrediction was called")
+        // Print the subscription status
+        print("Monthly subscription: \(hasMonthlySubscription)")
+        print("Annual subscription: \(hasAnnualSubscription)")
+        // Your existing code to make a prediction
+        print("Button tapped!")
+        impactFeedback()
+        isLoading = true
+        showMagicDust = true
+        if name.isEmpty || age.isEmpty || question.isEmpty {
+            self.alertMessage = NSLocalizedString("missing_info_message", comment: "")
+            self.showAlert = true
+            self.isLoading = false
+            self.showMagicDust = false
+        } else if let ageNumber = Int(age) {
+            let prompt = createPrompt(name: name, age: ageNumber, from: from, context: context, question: question)
+            openAIService.createChatCompletion(prompt: prompt)
+            { result in
+                switch result {
+                case .success(let predictionResult):
+                    self.prediction = (predictionResult, card)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.isLoading = false
+                        self.showMagicDust = false
+                        self.showResult.toggle()
+                        if !hasMonthlySubscription && !hasAnnualSubscription {
+                            predictionCount -= 1
+                            self.lastPredictionTimestamp = Date().timeIntervalSince1970
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self.isLoading = false
+                    self.showMagicDust = false
+                }
+            }
+        } else {
+            print("Error: Invalid age input.")
+            self.isLoading = false
+        }
+    }
+    
+    init(card: Card) {
+            self.card = card
+            _iapManager = StateObject(wrappedValue: IAPManager())
+        }
+    
     var body: some View {
         ZStack {
             NavigationView {
@@ -66,6 +128,10 @@ struct InputView: View {
                         .focused($focusedField, equals: .name)
                         .onSubmit {
                             focusedField = .age
+                        }
+                        .onChange(of: name) { newValue in
+                            // Remover espacios en blanco del texto
+                            name = newValue.trimmingCharacters(in: .whitespaces)
                         }
                         .font(.system(size: 18))
                         .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
@@ -89,21 +155,8 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
                     
-                    TextField(NSLocalizedString("Where are you from?", comment: ""), text: $from)
+                    TextField(NSLocalizedString("Where do you live?", comment: ""), text: $from)
                         .focused($focusedField, equals: .from)
-                        .onSubmit {
-                            focusedField = .context
-                        }
-                        .font(.system(size: 18))
-                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color.purple.opacity(0.4), lineWidth: 2)
-                        )
-
-                    TextField(NSLocalizedString("Any context needed? If not, leave blank.", comment: ""), text: $context)
-                        .focused($focusedField, equals: .context)
                         .onSubmit {
                             focusedField = .question
                         }
@@ -115,8 +168,21 @@ struct InputView: View {
                                 .stroke(Color.purple.opacity(0.4), lineWidth: 2)
                         )
 
-                    TextField(NSLocalizedString("What do you want to know about your future?", comment: ""), text: $question)
+                    TextField(NSLocalizedString("What do you want to know?", comment: ""), text: $question)
                         .focused($focusedField, equals: .question)
+                        .onSubmit {
+                            focusedField = .context
+                        }
+                        .font(.system(size: 18))
+                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.purple.opacity(0.4), lineWidth: 2)
+                        )
+                    
+                    TextField(NSLocalizedString("Any context needed? If not, leave blank.", comment: ""), text: $context)
+                        .focused($focusedField, equals: .context)
                         .onSubmit {
                             focusedField = nil
                         }
@@ -131,55 +197,32 @@ struct InputView: View {
                     Button(action: {
                         let currentMonth = Calendar.current.component(.month, from: Date())
                         let lastPredictionMonth = Calendar.current.component(.month, from: lastPredictionDate)
-                        if currentMonth != lastPredictionMonth {
-                                predictionCount = 0
-                                self.lastPredictionTimestamp = Date().timeIntervalSince1970
-                            }
-                        print("Button tapped!")
-                        impactFeedback()
-                        isLoading = true
-                        showMagicDust = true
-                        if name.isEmpty || age.isEmpty || question.isEmpty {
-                            self.alertMessage = NSLocalizedString("missing_info_message", comment: "")
-                            self.showAlert = true
-                            self.isLoading = false
-                            self.showMagicDust = false
-                        } else if let ageNumber = Int(age) {
-                            let prompt = createPrompt(name: name, age: ageNumber, from: from, context: context, question: question)
-                            openAIService.createChatCompletion(prompt: prompt)
-                            { result in
-                                switch result {
-                                case .success(let predictionResult):
-                                    self.prediction = (predictionResult, card)
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                        self.isLoading = false
-                                        self.showMagicDust = false
-                                        self.showResult.toggle()
-                                        self.predictionCount += 1
-                                        self.lastPredictionTimestamp = Date().timeIntervalSince1970
-                                    }
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                    self.isLoading = false
-                                    self.showMagicDust = false
-                                }
-                            }
-                        } else {
-                            print("Error: Invalid age input.")
-                            self.isLoading = false
+                        if currentMonth != lastPredictionMonth && !hasMonthlySubscription && !hasAnnualSubscription {
+                            predictionCount = 3
+                            self.lastPredictionTimestamp = Date().timeIntervalSince1970
                         }
-                    }) {
+                        // Check if the user has an active subscription or available predictions
+                        if hasMonthlySubscription || hasAnnualSubscription || predictionCount > 0 {
+                            // The user can make a prediction
+                            makePrediction()
+                        } else {
+                            // The user needs to purchase more predictions
+                            // Show the IAPView
+                            print("Attempting to show IAPView")
+                                    isShowingIAPView = true
+                                }
+                        }) {
             
-                        Text(isLoading ? NSLocalizedString("Predicting...🔮", comment: "") : NSLocalizedString("Guess My Future 🔮", comment: ""))
+                        Text(isLoading ? NSLocalizedString("Revealing...🔮", comment: "") : NSLocalizedString("🔮 Reveal 🔮", comment: ""))
                             .font(.title2)
                             .foregroundColor(.white)
                             .padding()
-                            .frame(width: 250)
+                            .frame(width: 200)
                             .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
                     }
                     .disabled(isLoading)
-                    .padding(.top, 60)
+                    .padding(.top, 50)
 
                 }
                 .padding()
@@ -216,6 +259,15 @@ struct InputView: View {
                         }
                     }
                 )
+                .onAppear {
+                    iapManager.onSinglePredictionPurchased = { [self] in
+                        print("Single prediction purchased, increasing purchasedPredictionCount")
+                        purchasedPredictionCount += 1
+                    }
+                }
+                .sheet(isPresented: $isShowingIAPView) {
+                    IAPView()
+                }
             }
             .sheet(isPresented: $showResult) {
                 if #available(iOS 16.0, *) {
@@ -320,3 +372,7 @@ extension View {
     }
 }
 #endif
+
+
+
+

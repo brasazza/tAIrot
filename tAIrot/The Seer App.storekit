@@ -1,0 +1,93 @@
+{
+  "identifier" : "F23E4A85",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6450767199",
+      "localizations" : [
+        {
+          "description" : "Valid for one prediction.",
+          "displayName" : "Single Prediction",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "single_prediction",
+      "referenceName" : "Single Prediction",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6450766089",
+    "_developerTeamID" : "MT6TFTW824",
+    "_lastSynchronizedDate" : 710046684.97401094
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21357125",
+      "localizations" : [
+
+      ],
+      "name" : "Monthly Subscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "6.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6450767892",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Grants you a month of unlimited predictions.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "unlimited_predictions_monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Unlimited Predictions (Monthly)",
+          "subscriptionGroupID" : "21357125",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "24.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6450767643",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Grants you a year of unlimited predictions.",
+              "displayName" : "Yearly Subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "unlimited_predictions_lifetime",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Unlimited Predictions (Yearly)",
+          "subscriptionGroupID" : "21357125",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

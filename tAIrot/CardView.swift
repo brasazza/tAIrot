@@ -30,7 +30,7 @@ struct CardView: View {
                         
                         Spacer()
                         
-                        Text(NSLocalizedString("Guess My Future 🔮", comment: ""))
+                        Text(NSLocalizedString("🔮 Discover 🔮", comment: ""))
                             .font(.title2)
                             .bold()
                             .foregroundColor(.white)
@@ -99,6 +99,8 @@ struct CardEmojiView: View {
             Text("💊")
         case .education:
             Text("📝")
+        case .personal:
+            Text("🤔")
         }
     }
 }
