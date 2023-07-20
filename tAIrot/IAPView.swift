@@ -2,7 +2,7 @@ import SwiftUI
 import StoreKit
 
 struct IAPView: View {
-    @StateObject private var iapManager = IAPManager()
+    @EnvironmentObject var iapManager: IAPManager
 
     var body: some View {
         ZStack {

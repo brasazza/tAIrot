@@ -49,6 +49,9 @@
 		5EC7E2342A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
 		5EC7E2352A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
 		5EC7E2362A51381F00F81BB2 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */; };
+		5EC7E2382A664DF200F81BB2 /* PredictionCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2372A664DF200F81BB2 /* PredictionCounter.swift */; };
+		5EC7E2392A664DF200F81BB2 /* PredictionCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2372A664DF200F81BB2 /* PredictionCounter.swift */; };
+		5EC7E23A2A664DF200F81BB2 /* PredictionCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7E2372A664DF200F81BB2 /* PredictionCounter.swift */; };
 		5EEBF3622A15555C00328861 /* tAIrotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3612A15555C00328861 /* tAIrotApp.swift */; };
 		5EEBF3642A15555C00328861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF3632A15555C00328861 /* ContentView.swift */; };
 		5EEBF3662A15555D00328861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBF3652A15555D00328861 /* Assets.xcassets */; };
@@ -101,6 +104,7 @@
 		5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
 		5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "The Seer App.storekit"; sourceTree = "<group>"; };
 		5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
+		5EC7E2372A664DF200F81BB2 /* PredictionCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCounter.swift; sourceTree = "<group>"; };
 		5EEBF35E2A15555C00328861 /* The Seer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Seer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEBF3612A15555C00328861 /* tAIrotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tAIrotApp.swift; sourceTree = "<group>"; };
 		5EEBF3632A15555C00328861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				5EC7E22B2A4E42A400F81BB2 /* IAPView.swift */,
 				5EC7E22F2A4F682800F81BB2 /* The Seer App.storekit */,
 				5EC7E2332A51381F00F81BB2 /* StoreObserver.swift */,
+				5EC7E2372A664DF200F81BB2 /* PredictionCounter.swift */,
 			);
 			path = tAIrot;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				5EEBF3902A155E6F00328861 /* InputView.swift in Sources */,
 				5EC7E2242A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
 				5EC7E22C2A4E42A400F81BB2 /* IAPView.swift in Sources */,
+				5EC7E2382A664DF200F81BB2 /* PredictionCounter.swift in Sources */,
 				5E9F51A52A3569F10057E5DE /* ColorExtension.swift in Sources */,
 				5EEBF3942A155EC700328861 /* ResultView.swift in Sources */,
 				5EEBF38C2A15561600328861 /* AspectButton.swift in Sources */,
@@ -475,6 +481,7 @@
 				5EC7E2252A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
 				5EC7E22D2A4E42A400F81BB2 /* IAPView.swift in Sources */,
 				5EA811B72A17FBDA00D06FCF /* CardView.swift in Sources */,
+				5EC7E2392A664DF200F81BB2 /* PredictionCounter.swift in Sources */,
 				5EEBF38D2A15561600328861 /* AspectButton.swift in Sources */,
 				5EC7E2352A51381F00F81BB2 /* StoreObserver.swift in Sources */,
 			);
@@ -491,6 +498,7 @@
 				5EEBF3922A155E6F00328861 /* InputView.swift in Sources */,
 				5EC7E2262A42A87700F81BB2 /* RemoteConfigService.swift in Sources */,
 				5EC7E22E2A4E42A400F81BB2 /* IAPView.swift in Sources */,
+				5EC7E23A2A664DF200F81BB2 /* PredictionCounter.swift in Sources */,
 				5E9F51A72A3569F10057E5DE /* ColorExtension.swift in Sources */,
 				5EEBF3962A155EC700328861 /* ResultView.swift in Sources */,
 				5EEBF38E2A15561600328861 /* AspectButton.swift in Sources */,

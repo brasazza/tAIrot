@@ -12,15 +12,18 @@ import FirebaseRemoteConfig
 
 struct InputView: View {
     let card: Card
-    @StateObject private var iapManager = IAPManager()
-    @AppStorage("predictionCount") var predictionCount: Int = 0
-    @AppStorage("lastPredictionTimestamp") var lastPredictionTimestamp: Double = Date().timeIntervalSince1970
+    @ObservedObject var predictionCounter: PredictionCounter
+        init(card: Card, predictionCounter: PredictionCounter) {  // Add this initializer
+                self.card = card
+                self.predictionCounter = predictionCounter
+            }
+    @ObservedObject var iapManager = IAPManager.shared
         var lastPredictionDate: Date {
             get {
-                return Date(timeIntervalSince1970: lastPredictionTimestamp)
+                return Date(timeIntervalSince1970: predictionCounter.lastPredictionTimestamp)
             }
             set {
-                lastPredictionTimestamp = newValue.timeIntervalSince1970
+                predictionCounter.lastPredictionTimestamp = newValue.timeIntervalSince1970
             }
         }
     @AppStorage("hasMonthlySubscription") var hasMonthlySubscription: Bool = false
@@ -31,7 +34,7 @@ struct InputView: View {
         if hasMonthlySubscription || hasAnnualSubscription {
             return "∞"
         } else {
-            return String(max(0, predictionCount + purchasedPredictionCount))
+            return String(max(0, predictionCounter.predictionCount + predictionCounter.purchasedPredictionCount))
         }
     }
 
@@ -99,8 +102,8 @@ struct InputView: View {
                         self.showMagicDust = false
                         self.showResult.toggle()
                         if !hasMonthlySubscription && !hasAnnualSubscription {
-                            predictionCount -= 1
-                            self.lastPredictionTimestamp = Date().timeIntervalSince1970
+                            predictionCounter.predictionCount -= 1
+                            self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
                         }
                     }
                 case .failure(let error):
@@ -115,15 +118,10 @@ struct InputView: View {
         }
     }
     
-    init(card: Card) {
-            self.card = card
-            _iapManager = StateObject(wrappedValue: IAPManager())
-        }
-    
     var body: some View {
         ZStack {
             NavigationView {
-                VStack(spacing: 20) {
+                VStack(spacing: 12) {
                     TextField(NSLocalizedString("Name", comment: ""), text: $name)
                         .focused($focusedField, equals: .name)
                         .onSubmit {
@@ -198,11 +196,11 @@ struct InputView: View {
                         let currentMonth = Calendar.current.component(.month, from: Date())
                         let lastPredictionMonth = Calendar.current.component(.month, from: lastPredictionDate)
                         if currentMonth != lastPredictionMonth && !hasMonthlySubscription && !hasAnnualSubscription {
-                            predictionCount = 3
-                            self.lastPredictionTimestamp = Date().timeIntervalSince1970
+                            predictionCounter.predictionCount = 3
+                            self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
                         }
                         // Check if the user has an active subscription or available predictions
-                        if hasMonthlySubscription || hasAnnualSubscription || predictionCount > 0 {
+                        if hasMonthlySubscription || hasAnnualSubscription || predictionCounter.predictionCount > 0 {
                             // The user can make a prediction
                             makePrediction()
                         } else {
@@ -212,35 +210,64 @@ struct InputView: View {
                                     isShowingIAPView = true
                                 }
                         }) {
+                            
+                        var gradientColors: [Color] {
+                            if colorScheme == .dark {
+                                // Dark theme colors
+                                return [
+                                    Color.purple.opacity(1),
+                                    Color.purple.opacity(0.6),
+                                    Color.purple.opacity(0.3)
+                                ]
+                            } else {
+                                // Light theme colors
+                                return [
+                                    Color(red: 50/255, green: 6/255, blue: 71/255).opacity(0.7),
+                                    Color(red: 150/255, green: 15/255, blue: 255/255).opacity(0.7),
+                                    Color(red: 148/255, green: 62/255, blue: 244/255).opacity(0.7),
+                                    Color(red: 150/255, green: 15/255, blue: 255/255).opacity(0.7),
+                                    Color(red: 50/255, green: 6/255, blue: 71/255).opacity(0.7)
+                                ]
+                            }
+                        }
             
                         Text(isLoading ? NSLocalizedString("Revealing...🔮", comment: "") : NSLocalizedString("🔮 Reveal 🔮", comment: ""))
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(width: 200)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(60)
-                    }
-                    .disabled(isLoading)
-                    .padding(.top, 50)
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: 200)
+                                    .background(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: gradientColors),
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
+                                    .shadow(radius: 8)
+                                    .cornerRadius(40)
+                            }
+                            .disabled(isLoading)
+                            .padding(.top, 50)
+                            .shadow(color: colorScheme == .dark ? Color.purple.opacity(0.4) : Color.purple.opacity(1), radius: 20)
 
+                            }
+                            .padding()
+                            .navigationBarTitleDisplayMode(.inline)
+                            .toolbar {
+                                ToolbarItem(placement: .principal) {
+                                    VStack {
+                                        Text(NSLocalizedString("Enter your details", comment: ""))
+                                            .font(.custom("MuseoModerno", size: 30))
+                                            .font(.headline)
+                                            .shadow(color: colorScheme == .dark ? Color.purple.opacity(0.9) : Color.black.opacity(0.6), radius: 10, x: 0, y: 2)
+                                            .scaleEffect(textScaleFactor)  // Aplicar el factor de escala al texto
+                                            .padding()
+                                        if isKeyboardShowing {
+                                            Spacer(minLength: 80)
+                        }
+                    }
                 }
-                .padding()
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        VStack {
-                            Text(NSLocalizedString("Enter your details", comment: ""))
-                                .font(.custom("MuseoModerno", size: 30))
-                                .font(.headline)
-                                .scaleEffect(textScaleFactor)  // Aplicar el factor de escala al texto
-                                .padding()
-                            if isKeyboardShowing {
-                                Spacer(minLength: 80)
             }
-        }
-    }
-}
 
                 .padding(.vertical, 20)
                 .frame(height: 70)
@@ -260,11 +287,20 @@ struct InputView: View {
                     }
                 )
                 .onAppear {
+                    // Check if it's the user's first time using the app
+                    if UserDefaults.standard.object(forKey: "hasLaunchedBefore") == nil {
+                        print("First time using the app, setting predictionCount to 3")
+                        predictionCounter.predictionCount = 3
+                        UserDefaults.standard.setValue(true, forKey: "hasLaunchedBefore")
+                        UserDefaults.standard.synchronize()
+                    }
+                    
                     iapManager.onSinglePredictionPurchased = { [self] in
                         print("Single prediction purchased, increasing purchasedPredictionCount")
-                        purchasedPredictionCount += 1
+                        predictionCounter.purchasedPredictionCount += 1
                     }
                 }
+
                 .sheet(isPresented: $isShowingIAPView) {
                     IAPView()
                 }
@@ -294,7 +330,7 @@ struct InputView: View {
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
                 withAnimation {
                     isKeyboardShowing = true
-                    textScaleFactor = 0.7  // Hacer que el texto sea más pequeño cuando el teclado está visible
+                    textScaleFactor = 0  // Hacer que el texto sea más pequeño cuando el teclado está visible
                 }
             }
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in

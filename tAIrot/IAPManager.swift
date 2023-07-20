@@ -10,6 +10,8 @@ import StoreKit
 import Combine
 
 class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
+    static let shared = IAPManager()
+    
     let annualSubscriptionProductID = "unlimited_predictions_lifetime"
     let monthlySubscriptionProductID = "unlimited_predictions_monthly"
     let individualPredictionProductID = "single_prediction"
@@ -18,16 +20,24 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
     @Published var monthlySubscription: SKProduct?
     @Published var individualPrediction: SKProduct?
     @Published var purchaseEvents = PassthroughSubject<String, Never>()
+    @Published var purchasedPredictionCount = 0
 
     private var transactionListener: Task<Void, Never>?
-    private let storeObserver = StoreObserver()
-    
+    private let storeObserver = StoreObserver.shared
+
     var onSinglePredictionPurchased: (() -> Void)?
 
-    override init() {
+    private override init() {
         super.init()
+        print("Creating an instance of IAPManager.")
         SKPaymentQueue.default().add(storeObserver)
         startListeningForTransactions()
+        onSinglePredictionPurchased = { [weak self] in
+            DispatchQueue.main.async {  // Add this line
+                self?.purchasedPredictionCount += 1
+                print("Single prediction purchased, increasing purchasedPredictionCount")
+            }
+        }
     }
 
     deinit {
@@ -67,9 +77,12 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
     }
 
     // Start listening for transaction updates
+    // Start listening for transaction updates
     func startListeningForTransactions() {
+        print("Starting to listen for transactions...")  // Add this line
         transactionListener = Task {
             for await result in Transaction.updates {
+                print("Received transaction update.")  // Add this line
                 switch result {
                 case .unverified(_, let error):
                     // The local transaction verification failed, you should log or handle the error
@@ -78,12 +91,14 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
                 case .verified(let transaction):
                     // The transaction was verified, you can now check the product id
                     print("Transaction type: verified")
+                    print("Product ID: \(transaction.productID)") // Add this line
                     handleTransaction(transaction)
                 }
             }
         }
     }
 
+    @Sendable  // Add this line
     private func handleTransaction(_ transaction: Transaction) {
         // Check the product id of the transaction
         if transaction.productID == self.annualSubscriptionProductID || transaction.productID == self.monthlySubscriptionProductID {
@@ -97,6 +112,9 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
         }
     }
 }
+
+
+
 
 
     

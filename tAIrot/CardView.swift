@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CardView: View {
+    @EnvironmentObject var predictionCounter: PredictionCounter
     var card: Card
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationLink(destination: InputView(card: card)) {
+            NavigationLink(destination: InputView(card: card, predictionCounter: predictionCounter)) {
                 ZStack {
                     CardBackgroundView(card: card)
                     

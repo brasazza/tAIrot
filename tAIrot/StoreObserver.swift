@@ -1,10 +1,14 @@
 import StoreKit
 
 class StoreObserver: NSObject, SKPaymentTransactionObserver {
-    override init() {
+    
+    static let shared = StoreObserver()
+
+    private override init() {
         super.init()
         print("Initializing StoreObserver")
     }
+    
     // This method is called when there are transaction updates.
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
@@ -16,11 +20,15 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
                 continue
             case .purchased:
                 // Unlock the feature or content
+                print("Transaction in purchased state: \(transaction)")
                 handlePurchased(transaction: transaction, queue: queue)
             case .failed:
+                // Log any errors that occurred
+                print("Transaction in failed state: \(transaction), error: \(String(describing: transaction.error))")
                 handleFailed(transaction: transaction, queue: queue)
             case .restored:
                 // Restore the purchased content
+                print("Transaction in restored state: \(transaction)")
                 handleRestored(transaction: transaction, queue: queue)
             case .deferred:
                 // Handle deferred transactions
@@ -32,18 +40,26 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     }
 
     private func handlePurchased(transaction: SKPaymentTransaction, queue: SKPaymentQueue) {
-        if transaction.payment.productIdentifier == "unlimited_predictions_monthly" {
-            UserDefaults.standard.set(true, forKey: "hasMonthlySubscription")
-        } else if transaction.payment.productIdentifier == "unlimited_predictions_lifetime" {
-            UserDefaults.standard.set(true, forKey: "hasAnnualSubscription")
-        } else if transaction.payment.productIdentifier == "single_prediction" {
-            // Increment the prediction count
-            print("Incrementing prediction count.")
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "predictionCount") + 1, forKey: "predictionCount")
-        }
-        queue.finishTransaction(transaction)
-    }
+        
+        let iapManager = IAPManager.shared
 
+      if transaction.payment.productIdentifier == "unlimited_predictions_monthly" {
+        UserDefaults.standard.set(true, forKey: "hasMonthlySubscription")
+
+      } else if transaction.payment.productIdentifier == "unlimited_predictions_lifetime" {
+        UserDefaults.standard.set(true, forKey: "hasAnnualSubscription")
+
+      } else if transaction.payment.productIdentifier == "single_prediction" {
+        // Increment purchased prediction count
+          iapManager.onSinglePredictionPurchased?()
+
+      } else {
+        print("Unexpected product identifier: \(transaction.payment.productIdentifier)")
+      }
+
+      queue.finishTransaction(transaction)
+    }
+    
     private func handleFailed(transaction: SKPaymentTransaction, queue: SKPaymentQueue) {
         if let error = transaction.error as? SKError {
             switch error.code {
@@ -67,6 +83,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
         queue.finishTransaction(transaction)
     }
 }
+
+
 
 
 

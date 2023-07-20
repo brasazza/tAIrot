@@ -241,6 +241,7 @@ struct ResultView: View {
                             .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(60)
                     }
+                        .presentationDragIndicator(.visible)
                     .sheet(isPresented: $isShareSheetShowing) {
                         ShareSheet(imageData: $shareImageData)
                     }

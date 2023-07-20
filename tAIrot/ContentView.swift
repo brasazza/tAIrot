@@ -20,30 +20,32 @@ struct IntroView: View {
     var body: some View {
         ZStack {
             if colorScheme == .dark {
-                LinearGradient(
-                    gradient: Gradient(stops: [
-                        .init(color: Color(hex: "000000"), location: 0),
-                        .init(color: Color(hex: "24003c"), location: 0.4),
-                        .init(color: Color(hex: "24003c"), location: 0.6),
-                        .init(color: Color(hex: "000000"), location: 1)
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .edgesIgnoringSafeArea(.all)
-            } else {
-                LinearGradient(
-                    gradient: Gradient(stops: [
-                        .init(color: Color(hex: "000000"), location: 0),
-                        .init(color: Color(hex: "24003c"), location: 0.4),
-                        .init(color: Color(hex: "24003c"), location: 0.6),
-                        .init(color: Color(hex: "000000"), location: 1)
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .edgesIgnoringSafeArea(.all)
-            }
+                    RadialGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: Color(hex: "000000"), location: 0),
+                            .init(color: Color(hex: "24003c"), location: 0.4),
+                            .init(color: Color(hex: "24003c"), location: 0.6),
+                            .init(color: Color(hex: "000000"), location: 1)
+                        ]),
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 1000
+                    )
+                    .edgesIgnoringSafeArea(.all)
+                } else {
+                    RadialGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: Color(hex: "000000"), location: 0),
+                            .init(color: Color(hex: "24003c"), location: 0.4),
+                            .init(color: Color(hex: "24003c"), location: 0.6),
+                            .init(color: Color(hex: "000000"), location: 1)
+                        ]),
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 1000
+                    )
+                    .edgesIgnoringSafeArea(.all)
+                }
 
             VStack {
                 Spacer()
@@ -64,7 +66,7 @@ struct IntroView: View {
                         .foregroundColor(colorScheme == .dark ? .white : .white)
                         .shadow(color: Color.white, radius: 10, x: 0, y: 0)
                         .opacity(showText && !hideElements ? 1 : 0)
-                        .animation(.easeInOut(duration: 1), value: showText)
+                        .animation(.easeInOut(duration: 0.6), value: showText)
                         .padding(.bottom, -44)
 
                 }
@@ -73,12 +75,12 @@ struct IntroView: View {
             }
             
             .opacity(goToMainView ? 0 : 2)
-            .animation(.easeInOut(duration: 1), value: goToMainView)
-            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1)))
+            .animation(.easeInOut(duration: 0.7), value: goToMainView)
+            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
 
             if showMainView {
                 MainView()
-                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1)))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
             }
         }
         .onAppear {
@@ -110,21 +112,20 @@ struct IntroView: View {
 }
 
 struct MainView: View {
-    @StateObject private var iapManager = IAPManager()
+    @EnvironmentObject var iapManager: IAPManager
+    @StateObject private var predictionCounter = PredictionCounter()
     @AppStorage("hasMonthlySubscription") var hasMonthlySubscription: Bool = false
     @AppStorage("hasAnnualSubscription") var hasAnnualSubscription: Bool = false
-    @AppStorage("purchasedPredictionCount") var purchasedPredictionCount: Int = 0
     
     var predictionsLeft: String {
         if hasMonthlySubscription || hasAnnualSubscription {
             return "∞"
         } else {
-            return String(max(0, predictionCount + purchasedPredictionCount))
+            return String(max(0, predictionCounter.predictionCount + predictionCounter.purchasedPredictionCount))
         }
     }
     
     @State private var isShowingIAPView = false
-    @AppStorage("predictionCount") var predictionCount: Int = 0
     @Environment(\.colorScheme) var colorScheme
     @State private var isShowingMenu = false
     @State private var iconRotation: Double = 0 // Declare iconRotation here
@@ -134,13 +135,13 @@ struct MainView: View {
             Card(
                 title: NSLocalizedString("Personal", comment: ""),
                 description: NSLocalizedString("Discover your true self. \nAsk profound questions like:\n\n\"What is my purpose in life?\"\n\n\"How can I achieve inner peace?\"", comment: ""),
-                color: LinearGradient(gradient: Gradient(colors: [Color(red: 55/255, green: 18/255, blue: 105/255), Color(red: 182/255, green: 132/255, blue: 255/255)]), startPoint: .topLeading, endPoint: .bottomTrailing),
+                color: LinearGradient(gradient: Gradient(colors: [Color(red: 53/255, green: 18/255, blue: 102/255), Color(red: 182/255, green: 132/255, blue: 255/255)]), startPoint: .top, endPoint: .bottom),
                 type: .personal
             ),
             Card(
                 title: NSLocalizedString("Love", comment: ""),
                 description: NSLocalizedString("Cupid's got nothing on me! \nFire daring questions like: \n\n\"When will I meet 'the one'? \n \n\"Will my ex and I get back together?\"", comment: ""),
-                color: LinearGradient(gradient: Gradient(colors: [Color(red: 127/255, green: 3/255, blue: 7/255), Color(red: 253/255, green: 0/255, blue: 12/255)]), startPoint: .top, endPoint: .bottom),
+                color: LinearGradient(gradient: Gradient(colors: [Color(red: 103/255, green: 7/255, blue: 9/255), Color(red: 253/255, green: 0/255, blue: 12/255)]), startPoint: .top, endPoint: .bottom),
                 type: .love
             ),
             Card(
@@ -164,7 +165,7 @@ struct MainView: View {
             Card(
                 title: NSLocalizedString("Job", comment: ""),
                 description: NSLocalizedString("Keen to discover your professional destiny? \nFire questions like: \n\n\"Will I get a promotion soon?\" \n \n\"Will my business idea be successful?\"", comment: ""),
-                color: LinearGradient(gradient: Gradient(colors: [Color(red: 254/255, green: 149/255, blue: 3/255), Color(red: 170/255, green: 134/255, blue: 91/255)]), startPoint: .top, endPoint: .bottom),
+                color: LinearGradient(gradient: Gradient(colors: [Color(red: 54/255, green: 32/255, blue: 14/255), Color(red: 188/255, green: 131/255, blue: 66/255)]), startPoint: .top, endPoint: .bottom),
                 type: .job
             ),
             Card(
@@ -212,6 +213,7 @@ struct MainView: View {
                         ForEach(cards) { card in
                             GeometryReader { innerGeometry in
                                 CardView(card: card)
+                                    .environmentObject(predictionCounter)
                                     .rotation3DEffect(
                                         Angle(degrees: Double((innerGeometry.frame(in: .global).minX - (outerGeometry.size.width / 30 + outerGeometry.frame(in: .global).minX)) / -10)),
                                         axis: (x: 0, y: 1, z: 0),
@@ -266,7 +268,7 @@ struct MainView: View {
                             .frame(width: 25, height: 25)
                             .padding()
                             .opacity(isShowingMenu ? 0.5 : 1)
-                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.4) : Color.black.opacity(0.7), radius: 6, x: 0, y: 2) // Agregar sombra al icono con color dependiente del tema
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.8) : Color.black.opacity(0.8), radius: 8) // Agregar sombra al icono con color dependiente del tema
                             .rotationEffect(.degrees(iconRotation)) // Apply rotation effect
                     }
                 }
@@ -276,7 +278,7 @@ struct MainView: View {
                     }) {
                         Text("🔮 \(predictionsLeft)")
                             .font(.custom("MuseoModerno", size:27))
-                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.4), radius: 5, x: 0, y: 2)
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.4), radius: 7, x: 1, y: 2)
                     }
                 }
             }
@@ -298,10 +300,9 @@ struct MainView: View {
             }
             .onAppear {
                 iapManager.onSinglePredictionPurchased = { [self] in
-                    purchasedPredictionCount += 1
+                    predictionCounter.purchasedPredictionCount += 1
                 }
             }
-        }
     }
     
     struct SideMenu: View {
@@ -433,13 +434,17 @@ struct MainView: View {
             .offset(x: isShowingMenu ? UIScreen.main.bounds.width / -4.8 : -UIScreen.main.bounds.width)
         }
     }
+}
     
     
     struct ContentView: View {
+        @ObservedObject var iapManager = IAPManager.shared
+
         var body: some View {
             NavigationView {
                 IntroView()
             }
+            .environmentObject(iapManager)
         }
     }
     
