@@ -2,13 +2,16 @@ import StoreKit
 
 class StoreObserver: NSObject, SKPaymentTransactionObserver {
     
+    @Published var isMonthlySubscriptionActive: Bool = UserDefaults.standard.bool(forKey: "hasMonthlySubscription")
+    @Published var isAnnualSubscriptionActive: Bool = UserDefaults.standard.bool(forKey: "hasAnnualSubscription")
+    
     static let shared = StoreObserver()
 
     private override init() {
         super.init()
         print("Initializing StoreObserver")
     }
-    
+        
     // This method is called when there are transaction updates.
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
             for transaction in transactions {
@@ -45,10 +48,12 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 
       if transaction.payment.productIdentifier == "unlimited_predictions_monthly" {
         UserDefaults.standard.set(true, forKey: "hasMonthlySubscription")
+          self.isMonthlySubscriptionActive = true
       }
         
       else if transaction.payment.productIdentifier == "unlimited_predictions_lifetime" {
         UserDefaults.standard.set(true, forKey: "hasAnnualSubscription")
+          self.isAnnualSubscriptionActive = true
       }
         
       else if transaction.payment.productIdentifier == "single_prediction" {
@@ -85,8 +90,10 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
     private func handleRestored(transaction: SKPaymentTransaction, queue: SKPaymentQueue) {
         if transaction.original?.payment.productIdentifier == "unlimited_predictions_monthly" {
             UserDefaults.standard.set(true, forKey: "hasMonthlySubscription")
+            self.isMonthlySubscriptionActive = true
         } else if transaction.original?.payment.productIdentifier == "unlimited_predictions_lifetime" {
             UserDefaults.standard.set(true, forKey: "hasAnnualSubscription")
+            self.isAnnualSubscriptionActive = true
         }
         queue.finishTransaction(transaction)
     }

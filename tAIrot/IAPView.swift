@@ -3,7 +3,9 @@ import StoreKit
 
 struct IAPView: View {
     @EnvironmentObject var iapManager: IAPManager
-    @Binding var isShowingIAPView: Bool  
+    @Binding var isShowingIAPView: Bool
+    @State private var isAnimating: Bool = false
+
     let monthlySubscriptionID = "unlimited_predictions_monthly"
 
     var body: some View {
@@ -17,39 +19,57 @@ struct IAPView: View {
                     LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.7)]), startPoint: .center, endPoint: .bottom)
                 )
 
-            Text(NSLocalizedString("Get Unlimited Predictions!", comment: ""))
-                .font(.system(size: 30))
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .shadow(color: Color.black, radius: 10, x: 0, y: 0)
-                .shadow(color: .black, radius: 10)
-                .offset(y: -290)
-                .multilineTextAlignment(.center)
-                .zIndex(1)
-            
             VStack {
+                Text(NSLocalizedString("Unlock Unlimited Predictions!", comment: ""))
+                    .font(.system(size: 27))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .shadow(color: Color.black, radius: 10, x: 0, y: 0)
+                    .shadow(color: .black, radius: 10)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 60)
+                    .scaleEffect(isAnimating ? 1.1 : 1.0)
+                    .opacity(isAnimating ? 0.8 : 1.0)
+                    .onAppear {
+                        withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                            isAnimating = true
+                        }
+                    }
+                
                 Spacer()
 
                 if let annualSubscription = iapManager.annualSubscription {
                     ProductView(product: annualSubscription, action: {
                         iapManager.buyProduct(annualSubscription)
-                    }, shake: false)
+                    }, shake: false, isPurchased: iapManager.storeObserver.isAnnualSubscriptionActive)
                 }
-
+                
                 if let monthlySubscription = iapManager.monthlySubscription {
                     ProductView(product: monthlySubscription, action: {
                         iapManager.buyProduct(monthlySubscription)
-                    }, shake: monthlySubscription.productIdentifier == monthlySubscriptionID)
+                    }, shake: !iapManager.storeObserver.isMonthlySubscriptionActive, isPurchased: iapManager.storeObserver.isMonthlySubscriptionActive)
                 }
 
                 if let individualPrediction = iapManager.individualPrediction {
                     ProductView(product: individualPrediction, action: {
                         iapManager.buyProduct(individualPrediction)
-                    }, shake: false)
+                    }, shake: false, isPurchased: false)  // Individual predictions are always purchasable
                 }
+                
+                // "Restore Purchases" button
+                Button(action: {
+                    iapManager.restorePurchases()
+                }) {
+                    Text("Restore Purchases")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
+                }
+                .cornerRadius(10)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
             }
-            .padding(.bottom)
-            .padding(.bottom)
             .onAppear {
                 iapManager.fetchProducts()
             }
@@ -64,11 +84,12 @@ struct ProductView: View {
     let product: SKProduct
     let action: () -> Void
     let shake: Bool
+    let isPurchased: Bool  // Add this line
     @State private var shakeEffect = false
 
     var body: some View {
-        Button(action: action) {
-            Text("Buy \(product.localizedTitle) for \(product.priceFormatter())")
+        Button(action: isPurchased ? {} : action) {  // Disable the action if the product is already purchased
+            Text(isPurchased ? "You have an active subscription!" : "Buy \(product.localizedTitle) for \(product.priceFormatter())")
                 .font(.title2)
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 5)
@@ -83,6 +104,8 @@ struct ProductView: View {
                 .cornerRadius(60)
                 .shadow(color: .purple, radius: 15)
                 .modifier(Shake(animatableData: shake && shakeEffect ? CGFloat(0) : CGFloat(1)))
+                .opacity(isPurchased ? 0.6 : 1.0)  // Make the button semi-transparent if the product is already purchased
+                .disabled(isPurchased)  // Disable the button if the product is already purchased
         }
         .padding(.bottom)
         .onAppear() {

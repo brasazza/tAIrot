@@ -21,12 +21,21 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
     @Published var individualPrediction: SKProduct?
     @Published var purchaseEvents = PassthroughSubject<String, Never>()
     @Published var purchasedPredictionCount = 0
+    @Published var storeObserver = StoreObserver.shared
 
     private var transactionListener: Task<Void, Never>?
-    private let storeObserver = StoreObserver.shared
 
     @Published var onSinglePredictionPurchased: (() -> Void)?
-
+    
+    var isMonthlySubscriptionActive: Bool {
+            return StoreObserver.shared.isMonthlySubscriptionActive
+        }
+    var isAnnualSubscriptionActive: Bool {
+        return StoreObserver.shared.isAnnualSubscriptionActive
+    }
+    
+    var cancellables = Set<AnyCancellable>()
+    
     private override init() {
         super.init()
         print("Creating an instance of IAPManager.")
@@ -103,6 +112,12 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
                 }
             }
         }
+    }
+    
+    // Add this function to handle restoring purchases
+    func restorePurchases() {
+        print("Initiating restoration of purchases.")
+        SKPaymentQueue.default().restoreCompletedTransactions()
     }
 
     @Sendable
