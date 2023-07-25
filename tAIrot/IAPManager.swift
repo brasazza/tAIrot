@@ -25,21 +25,28 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
     private var transactionListener: Task<Void, Never>?
     private let storeObserver = StoreObserver.shared
 
-    var onSinglePredictionPurchased: (() -> Void)?
+    @Published var onSinglePredictionPurchased: (() -> Void)?
 
     private override init() {
         super.init()
         print("Creating an instance of IAPManager.")
         SKPaymentQueue.default().add(storeObserver)
         startListeningForTransactions()
+        
+        // Load the saved count from UserDefaults
+        purchasedPredictionCount = UserDefaults.standard.integer(forKey: "purchasedPredictionCount")
+        
         onSinglePredictionPurchased = { [weak self] in
             DispatchQueue.main.async {  // Add this line
                 self?.purchasedPredictionCount += 1
                 print("Single prediction purchased, increasing purchasedPredictionCount")
+                
+                // Save the updated count to UserDefaults
+                UserDefaults.standard.set(self?.purchasedPredictionCount, forKey: "purchasedPredictionCount")
             }
         }
     }
-
+    
     deinit {
         SKPaymentQueue.default().remove(storeObserver)
         transactionListener?.cancel()
@@ -98,7 +105,7 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
         }
     }
 
-    @Sendable  // Add this line
+    @Sendable
     private func handleTransaction(_ transaction: Transaction) {
         // Check the product id of the transaction
         if transaction.productID == self.annualSubscriptionProductID || transaction.productID == self.monthlySubscriptionProductID {
@@ -118,7 +125,6 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
 
 
     
-
 
 
 

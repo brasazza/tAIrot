@@ -80,6 +80,8 @@ struct IntroView: View {
 
             if showMainView {
                 MainView()
+                    .environmentObject(IAPManager.shared)
+                    .environmentObject(PredictionCounter.shared)
                     .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
             }
         }
@@ -113,7 +115,7 @@ struct IntroView: View {
 
 struct MainView: View {
     @EnvironmentObject var iapManager: IAPManager
-    @StateObject private var predictionCounter = PredictionCounter()
+    @StateObject private var predictionCounter = PredictionCounter.shared
     @AppStorage("hasMonthlySubscription") var hasMonthlySubscription: Bool = false
     @AppStorage("hasAnnualSubscription") var hasAnnualSubscription: Bool = false
     
@@ -121,7 +123,7 @@ struct MainView: View {
         if hasMonthlySubscription || hasAnnualSubscription {
             return "∞"
         } else {
-            return String(max(0, predictionCounter.predictionCount + predictionCounter.purchasedPredictionCount))
+            return String(max(0, predictionCounter.predictionCount + iapManager.purchasedPredictionCount))
         }
     }
     
@@ -274,6 +276,7 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        print("purchasedPredictionCount in IAPManager: \(iapManager.purchasedPredictionCount)")
                         isShowingIAPView = true
                     }) {
                         Text("🔮 \(predictionsLeft)")
@@ -283,7 +286,7 @@ struct MainView: View {
                 }
             }
             .sheet(isPresented: $isShowingIAPView) {
-                IAPView()
+                IAPView(isShowingIAPView: self.$isShowingIAPView)
             }
                 
                 .navigationBarBackButtonHidden(true) // Oculta el botón de retroceso
@@ -293,14 +296,13 @@ struct MainView: View {
                         .transition(.move(edge: .leading))
                 }
             }
+            .onAppear {
+                predictionCounter.predictionCount = UserDefaults.standard.integer(forKey: "predictionCount")
+                iapManager.purchasedPredictionCount = UserDefaults.standard.integer(forKey: "purchasedPredictionCount")
+            }
             .onTapGesture {
                 withAnimation(.spring()) {
                     isShowingMenu.toggle()
-                }
-            }
-            .onAppear {
-                iapManager.onSinglePredictionPurchased = { [self] in
-                    predictionCounter.purchasedPredictionCount += 1
                 }
             }
     }
@@ -443,8 +445,9 @@ struct MainView: View {
         var body: some View {
             NavigationView {
                 IntroView()
+                    .environmentObject(IAPManager.shared)
+                    .environmentObject(PredictionCounter.shared)
             }
-            .environmentObject(iapManager)
         }
     }
     
@@ -453,7 +456,3 @@ struct MainView: View {
             ContentView()
         }
     }
-
-
-
-

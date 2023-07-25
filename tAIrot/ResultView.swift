@@ -245,19 +245,6 @@ struct ResultView: View {
                     .sheet(isPresented: $isShareSheetShowing) {
                         ShareSheet(imageData: $shareImageData)
                     }
-                    
-                    Button(action: {
-                        self.showResult = false
-                        }) {
-                            Image(systemName: "checkmark")
-                                .font(.title2)
-                                .bold()
-                                .foregroundColor(.white)
-                                .frame(width: 30, height: 30)
-                                .padding()
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.purple.opacity(1), Color.purple.opacity(0.3)]), startPoint: .leading, endPoint: .trailing))
-                                .cornerRadius(60)
-                        }
                 }
                 .padding(.bottom, 50)
                 

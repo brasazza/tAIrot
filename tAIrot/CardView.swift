@@ -13,7 +13,7 @@ struct CardView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationLink(destination: InputView(card: card, predictionCounter: predictionCounter)) {
+            NavigationLink(destination: InputView(card: card)) {
                 ZStack {
                     CardBackgroundView(card: card)
                     

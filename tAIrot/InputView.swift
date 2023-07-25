@@ -12,12 +12,8 @@ import FirebaseRemoteConfig
 
 struct InputView: View {
     let card: Card
-    @ObservedObject var predictionCounter: PredictionCounter
-        init(card: Card, predictionCounter: PredictionCounter) {  // Add this initializer
-                self.card = card
-                self.predictionCounter = predictionCounter
-            }
-    @ObservedObject var iapManager = IAPManager.shared
+    @EnvironmentObject var predictionCounter: PredictionCounter
+    @EnvironmentObject var iapManager: IAPManager
         var lastPredictionDate: Date {
             get {
                 return Date(timeIntervalSince1970: predictionCounter.lastPredictionTimestamp)
@@ -34,7 +30,7 @@ struct InputView: View {
         if hasMonthlySubscription || hasAnnualSubscription {
             return "∞"
         } else {
-            return String(max(0, predictionCounter.predictionCount + predictionCounter.purchasedPredictionCount))
+            return String(max(0, predictionCounter.predictionCount + iapManager.purchasedPredictionCount))
         }
     }
 
@@ -77,11 +73,13 @@ struct InputView: View {
     
     func makePrediction() {
         print("makePrediction was called")
-        // Print the subscription status
-        print("Monthly subscription: \(hasMonthlySubscription)")
-        print("Annual subscription: \(hasAnnualSubscription)")
-        // Your existing code to make a prediction
-        print("Button tapped!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Print the subscription status
+            print("Monthly subscription: \(hasMonthlySubscription)")
+            print("Annual subscription: \(hasAnnualSubscription)")
+            // Your existing code to make a prediction
+            print("Button tapped!")
+        }
         impactFeedback()
         isLoading = true
         showMagicDust = true
@@ -102,8 +100,17 @@ struct InputView: View {
                         self.showMagicDust = false
                         self.showResult.toggle()
                         if !hasMonthlySubscription && !hasAnnualSubscription {
-                            predictionCounter.predictionCount -= 1
-                            self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
+                            if iapManager.purchasedPredictionCount > 0 {
+                                iapManager.purchasedPredictionCount -= 1
+                                UserDefaults.standard.set(iapManager.purchasedPredictionCount, forKey: "purchasedPredictionCount") // Update UserDefaults
+                                print("purchasedPredictionCount after decrement: \(iapManager.purchasedPredictionCount)")
+                            } else if predictionCounter.predictionCount > 0 {
+                                predictionCounter.predictionCount -= 1
+                                UserDefaults.standard.set(predictionCounter.predictionCount, forKey: "predictionCount") // Update UserDefaults
+                                print("Prediction count after decrement: \(predictionCounter.predictionCount)")
+                                self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
+                                UserDefaults.standard.set(self.predictionCounter.lastPredictionTimestamp, forKey: "lastPredictionTimestamp") // Update UserDefaults
+                            }
                         }
                     }
                 case .failure(let error):
@@ -200,15 +207,18 @@ struct InputView: View {
                             self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
                         }
                         // Check if the user has an active subscription or available predictions
-                        if hasMonthlySubscription || hasAnnualSubscription || predictionCounter.predictionCount > 0 {
+                        if hasMonthlySubscription || hasAnnualSubscription || iapManager.purchasedPredictionCount > 0 || predictionCounter.predictionCount > 0 {
                             // The user can make a prediction
                             makePrediction()
                         } else {
                             // The user needs to purchase more predictions
                             // Show the IAPView
+                            print("purchasedPredictionCount in IAPManager: \(iapManager.purchasedPredictionCount)")
+                            print("predictionsLeft in InputView: \(predictionsLeft)")
                             print("Attempting to show IAPView")
                                     isShowingIAPView = true
                                 }
+                        hideKeyboard()
                         }) {
                             
                         var gradientColors: [Color] {
@@ -246,6 +256,7 @@ struct InputView: View {
                                     .shadow(radius: 8)
                                     .cornerRadius(40)
                             }
+                            .animation(.easeInOut, value: predictionCounter.predictionCount)
                             .disabled(isLoading)
                             .padding(.top, 50)
                             .shadow(color: colorScheme == .dark ? Color.purple.opacity(0.4) : Color.purple.opacity(1), radius: 20)
@@ -287,22 +298,29 @@ struct InputView: View {
                     }
                 )
                 .onAppear {
+                    // Load the saved count from UserDefaults
+                    predictionCounter.predictionCount = UserDefaults.standard.integer(forKey: "predictionCount")
+
                     // Check if it's the user's first time using the app
                     if UserDefaults.standard.object(forKey: "hasLaunchedBefore") == nil {
                         print("First time using the app, setting predictionCount to 3")
                         predictionCounter.predictionCount = 3
                         UserDefaults.standard.setValue(true, forKey: "hasLaunchedBefore")
-                        UserDefaults.standard.synchronize()
                     }
                     
+                    // Save the updated count to UserDefaults
+                    UserDefaults.standard.set(predictionCounter.predictionCount, forKey: "predictionCount")
+                    UserDefaults.standard.synchronize()
+
                     iapManager.onSinglePredictionPurchased = { [self] in
                         print("Single prediction purchased, increasing purchasedPredictionCount")
-                        predictionCounter.purchasedPredictionCount += 1
+                        iapManager.purchasedPredictionCount += 1
                     }
                 }
 
                 .sheet(isPresented: $isShowingIAPView) {
-                    IAPView()
+                    IAPView(isShowingIAPView: self.$isShowingIAPView)
+                        .environmentObject(self.iapManager)
                 }
             }
             .sheet(isPresented: $showResult) {
@@ -408,7 +426,6 @@ extension View {
     }
 }
 #endif
-
 
 
 

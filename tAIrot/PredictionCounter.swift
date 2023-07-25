@@ -9,7 +9,9 @@ import SwiftUI
 
 class PredictionCounter: ObservableObject {
     static let shared = PredictionCounter()
-    
+
+    @ObservedObject var iapManager = IAPManager.shared
+
     @AppStorage("predictionCount") private var storedPredictionCount: Int = 0 {
         didSet {
             predictionCount = storedPredictionCount
@@ -24,19 +26,18 @@ class PredictionCounter: ObservableObject {
     }
     @Published var lastPredictionTimestamp: Double = 0
 
-    @AppStorage("purchasedPredictionCount") private var storedPurchasedPredictionCount: Int = 0 {
-        didSet {
-            purchasedPredictionCount = storedPurchasedPredictionCount
-        }
-    }
-    @Published var purchasedPredictionCount: Int = 0
-
     init() {
         if storedLastPredictionTimestamp == 0 {
             storedPredictionCount = 3
         }
     }
 }
+
+
+
+
+
+
 
 
 

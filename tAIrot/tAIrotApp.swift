@@ -21,7 +21,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct TheSeerApp: App {
-    @StateObject var predictionCounter = PredictionCounter()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
