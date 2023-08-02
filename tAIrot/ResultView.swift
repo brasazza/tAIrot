@@ -87,6 +87,68 @@ extension View {
     }
 }
 
+struct FireworkParticlesGeometryEffect: GeometryEffect {
+    var time: Double
+    var speed = Double.random(in: 100...200)
+    var direction = Double.random(in: -Double.pi...Double.pi)
+    
+    var animatableData: Double {
+        get { time }
+        set { time = newValue }
+    }
+    
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        let xTranslation = speed * cos(direction) * time
+        let yTranslation = speed * sin(direction) * time
+        let affineTranslation = CGAffineTransform(translationX: xTranslation, y: yTranslation)
+        return ProjectionTransform(affineTranslation)
+    }
+}
+
+struct ParticlesModifier: ViewModifier {
+    @State var time = 0.0
+    @State var scale = 0.1
+    let duration = 2.0
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            ForEach(0..<100, id: \.self) { index in
+                content
+                    .hueRotation(Angle(degrees: time * 80))
+                    .scaleEffect(scale)
+                    .modifier(FireworkParticlesGeometryEffect(time: time))
+                    .opacity(((duration - time) / duration))
+            }
+        }
+        .onAppear {
+            withAnimation(.easeOut(duration: duration)) {
+                self.time = duration
+                self.scale = 1.0
+            }
+        }
+    }
+}
+
+struct Star: Shape {
+    func path(in rect: CGRect) -> Path {
+        let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
+        var points: [CGPoint] = []
+        for i in 0..<5 {
+            let angle = .pi * 2 * (Double(i) * 2 / 5 - 0.5)
+            let point = CGPoint(x: center.x + rect.width / 2 * CGFloat(cos(angle)),
+                                y: center.y + rect.height / 2 * CGFloat(sin(angle)))
+            points.append(point)
+        }
+        var path = Path()
+        path.move(to: points[0])
+        for i in 1..<5 {
+            path.addLine(to: points[i])
+        }
+        path.closeSubpath()
+        return path
+    }
+}
+
 @available(iOS 16.0, *)
 struct ResultView: View {
     let prediction: String
@@ -182,6 +244,7 @@ struct ResultView: View {
                 
                 HStack(spacing: 50) {
                     Button(action: {
+                        impactFeedback()
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
                         imageSaver.successHandler = {
@@ -208,6 +271,7 @@ struct ResultView: View {
                     }
                         
                     Button(action: {
+                        impactFeedback()
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
                         
@@ -227,6 +291,7 @@ struct ResultView: View {
                     }
                     
                     Button(action: {
+                        impactFeedback()
                         let totalHeight = geometry.size.height
                         let image = contentView.snapshot(width: 500, height: totalHeight)
                         shareImageData = image.pngData()
@@ -265,6 +330,29 @@ struct ResultView: View {
                     }
                 }
             )
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 20, height: 20)  // Adjust size as needed
+                .modifier(ParticlesModifier())
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 20, height: 20)  // Adjust size as needed
+                .modifier(ParticlesModifier())
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 20, height: 20)  // Adjust size as needed
+                .modifier(ParticlesModifier())
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+
+            Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 20, height: 20)  // Adjust size as needed
+                .modifier(ParticlesModifier())
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
     }
 }

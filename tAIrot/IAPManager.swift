@@ -85,6 +85,18 @@ class IAPManager: NSObject, ObservableObject, SKProductsRequestDelegate {
             }
         }
     }
+    
+    func productsRequest(_ request: SKProductsRequest, didFailWithError error: Error) {
+
+      let alert = UIAlertController(title: NSLocalizedString("product_fetch_error_title", comment: ""),
+                                    message: error.localizedDescription,
+                                    preferredStyle: .alert)
+
+      alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default))
+
+      // Present alert
+
+    }
 
     func buyProduct(_ product: SKProduct) {
         print("Initiating purchase for product: \(product.productIdentifier)")

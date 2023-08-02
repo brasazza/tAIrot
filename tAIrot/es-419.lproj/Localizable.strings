@@ -1,40 +1,83 @@
-"Key" = "Clave";
-"The" = "El";
-"Seer" = "Vidente";
-"FuturAI" = "FuturIA";
-"Block Ads" = "Bloquear Anuncios";
-"Restore Purchase" = "Restaurar Compra";
-"Contact Us" = "Contáctanos";
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "Personal";
+"card_description_personal" = "Descubre tu verdadero yo. \nPregunta cuestiones profundas como: \n\n\"¿Cuál es mi propósito en la vida?\"\n\n\"¿Cómo puedo alcanzar la paz interior?\"";
+
+"card_title_love" = "Amor";
+"card_description_love" = "Echa un vistazo al futuro de tu vida amorosa. \nPregunta cosas que llegan al corazón como: \n\n\"¿Cuándo conoceré a 'la persona correcta'?\"\n\n\"¿Hay una segunda oportunidad con mi ex?\"";
+
+"card_title_finance" = "Finanzas";
+"card_description_finance" = "Obtén una idea de tu futuro financiero. \nPregunta cosas como: \n\n\"¿Cómo se ve mi futuro financiero?\" \ \n\n\"¿Alguna vez ganaré la lotería?\"";
+
+"card_title_relationships" = "Relaciones";
+"card_description_relationships" = "Profundiza en asuntos de familia y relaciones. \n\n\"¿Mejorará mi relación con mis padres?\" \n\n\"¿Durará mi amistad?\"\n\n¡Descubrámoslo!";
+
+"card_title_health" = "Salud";
+"card_description_health" = "¿Quieres echar un vistazo al futuro de tu salud? \nPregunta cosas como: \n\n\"¿Para qué problemas de salud debería prepararme?\"\n\n\"¿Mejorará mi salud mental?\"";
+
+"card_title_job" = "Trabajo";
+"card_description_job" = "Ve lo que te depara tu carrera. \nHaz preguntas como: \n\n\"¿Obtendré una promoción pronto?\" \n\n\"¿Tendrá éxito mi idea de negocio?\"";
+
+"card_title_education" = "Educación";
+"card_description_education" = "¿Buscas información sobre tu trayectoria educativa? \nPregunta cosas como: \n\n\"¿En qué áreas de estudio debería enfocarme?\"\n\n\"¿Voy a aprobar mis próximos exámenes?\"";
+
+"card_title_death" = "Muerte";
+"card_description_death" = "¿Valiente para enfrentar las verdades más profundas de la vida? \nValientemente pregúntame cosas como: \n\n\"¿Cómo voy a morir?\" \n\n\"¿Cómo puedo aceptar mi mortalidad?\" \n\nAdvertencia: Puede que no te guste la respuesta.";
+
+"block_ads" = "Bloquear Anuncios";
+"Instagram" = "Instagram";
+"Twitter" = "Twitter";
+"contact_us" = "Contáctanos";
 "Dark Mode" = "Modo Oscuro";
 "Light Mode" = "Modo Claro";
-"Love" = "Amor";
-"Ready to unlock the secrets of your romantic destiny? \nFire daring questions like: \n\n\"When will I meet 'the one'? \n \n\"Will my ex and I get back together?\"" = "¿Quieres descubrir los secretos de tu futuro romántico? \nHaz preguntas atrevidas como: \n\n\"¿Cuándo conoceré a 'la persona indicada'? \n \n\"¿Volveré con mi ex pareja?\"";
-"Finance" = "Finanzas";
-"Want a glimpse into your financial future? \nAsk questions like: \n\n\"What does my financial future look like?\" \n\n\"Am I ever going to win the lottery?\"" = "¿Quieres vislumbrar tu futuro financiero? \nPregunta cosas como: \n\n\"¿Cómo se ve mi futuro financiero?\" \n\n\"¿Alguna vez ganaré la lotería?\"";
-"Relationships" = "Relaciones";
-"Delve into matters of family and relationships. \n\n\"Will my relationship with my parents improve?\" \n\n\"Will my friendship last?\" \n\nLet's find out!" = "Profundiza en asuntos de familia y relaciones. \n\n\"¿Mejorará mi relación con mis padres?\" \n\n\"¿Durará mi amistad?\" \n\n¡Descubramoslo!";
-"Job" = "Trabajo";
-"Keen to discover your professional destiny? \nFire questions like: \n\n\"Will I get a promotion soon?\" \n \n\"Will my business idea be successful?\"" = "¿Ansioso por descubrir tu destino profesional? \nPregunta cosas como: \n\n\"¿Obtendré una promoción pronto?\" \n \n\"¿Será exitosa mi idea de negocio?\"";
-"Health" = "Salud";
-"Want to peek into your health's future? \nAsk questions like: \n\n\"What health challenges might I face in the future?\" \n \n\"Will my mental health improve?\"" = "¿Quieres echar un vistazo a tu futuro de salud? \nPregunta cosas como: \n\n\"¿Qué desafíos de salud podría enfrentar en el futuro?\" \n \n\"¿Mejorará mi salud mental?\"";
-"Death" = "Muerte";
-"Brave enough to face life's deepest truths? \nCourageously ask me things like: \n\n\"How will I die?\" \n \n\"How can I come to terms with my mortality?\" \n\n Warning: You might not like the answer." = "¿Suficientemente valiente para enfrentar las verdades más profundas de la vida? \nAtrévete a preguntarme cosas como: \n\n\"¿Cómo voy a morir?\" \n \n\"¿Cómo puedo aceptar mi mortalidad?\" \n\n Advertencia: La respuesta podría no gustarte.";
-"Guess My Future 🔮" = "Adivina Mi Futuro 🔮";
+
+// InputView
+
 "Name" = "Nombre";
 "Age" = "Edad";
-"Where are you from?" = "¿De dónde eres?";
-"Any context needed? If not, leave blank." = "¿Necesito contexto? Si no, deja en blanco.";
-"What do you want to know about your future?" = "¿Qué quieres saber sobre tu futuro?";
+"Where do you live?" = "¿Dónde vives?";
+"What do you want to know?" = "¿Qué quieres saber?";
+"Any context needed? If not, leave blank." = "¿Necesitas algún contexto? Si no, deja en blanco.";
+
+"🔮 Reveal 🔮" = "🔮 Revelar 🔮";
+"Revealing...🔮" = "Revelando...🔮";
 "Enter your details" = "Ingresa tus detalles";
-"Predicting...🔮" = "Adivinando...🔮";
-"Guess My Future 🔮" = "Adivina Mi Futuro 🔮";
-"%@'s Future 🔮" = "Futuro de %@ 🔮";
-"missing_info_title" = "Información Faltante";
-"missing_info_message" = "Por favor completa los campos de Nombre, Edad y Pregunta antes de continuar.";
-"ok_button" = "Aceptar";
-"save_success" = "La imagen se guardó correctamente.";
-"save_failure" = "Fallo al guardar la imagen: ";
-"The Seer" = "El Vidente";
-"Looking for insights into your educational journey? \nAsk questions like: \n\n\"What areas of study should I focus on?\" \n \n\"Will I be successful in my upcoming exams?\"" = "¿Buscas perspectivas para tu camino educativo? \nPregunta cosas como: \n\n\"¿En qué áreas de estudio debería enfocarme?\" \n \n\"¿Tendré éxito en mis próximos exámenes?\"";
+
+"missing_info_title" = "Falta Información";
+"missing_info_message" = "Por favor, ingresa tu nombre, edad y pregunta para obtener una predicción.";
+"ok_button" = "OK";
+
+"Error: Invalid age input." = "Error: Entrada de edad inválida.";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "El Destino de %@ 🔮";
+"save_success" = "¡Guardado en Fotos!";
+"save_failure" = "Error al guardar imagen: %@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 Descubrir 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "Transacción fallida con error:";
+"monthly_subscription_restored_message" = "Suscripción mensual restaurada.";
+"annual_subscription_restored_message" = "Suscripción anual restaurada.";
+"product_fetch_error_title" = "Error al Obtener Producto";
+"ok" = "OK";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "Desbloquea Predicciones\nIlimitadas!";
+"Buy %@ for %@" = "Compra %@ por %@";
+"You have an active subscription!" = "¡Tienes una suscripción activa!";
+"Restore Purchases" = "Restaurar Compras";
+"notification_title" = "Notificación";
+"ok" = "Ok";
+"Terms and Conditions" = "Términos y Condiciones";
+"Privacy Policy" = "Política de Privacidad";
 
 

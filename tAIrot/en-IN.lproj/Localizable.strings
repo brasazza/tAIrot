@@ -1,0 +1,88 @@
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "Personal";
+"card_description_personal" = "Discover your true self. \nAsk profound questions like:\n\n\"What is my purpose in life?\"\n\n\"How can I achieve inner peace?\"";
+
+"card_title_love" = "Love";
+"card_description_love" = "Peek into your love life's future. \nAsk heart-touching questions like: \n\n\"When will I meet 'the one'?\"\n\n\"Is there a second chance with my ex?\"";
+
+"card_title_finance" = "Finance";
+"card_description_finance" = "Get a hint of your money future. \nAsk questions like: \n\n\"What does my financial future look like?\"\n\n\"Will I ever hit the jackpot?\"";
+
+"card_title_relationships" = "Relationships";
+"card_description_relationships" = "Delve into matters of family and relationships. \n\n\"Will my relationship with my parents improve?\"\n\n\"Will my friendship last?\"\n\nLet's find out!";
+
+"card_title_health" = "Health";
+"card_description_health" = "Want to peek into your health's future? \nAsk questions like: \n\n\"What health issues should I prepare for?\"\n\n\"Will my mental health improve?\"";
+
+"card_title_job" = "Job";
+"card_description_job" = "See what's next in your career. \nFire questions like: \n\n\"Will I get a promotion soon?\"\n\n\"Will my business idea be successful?\"";
+
+"card_title_education" = "Education";
+"card_description_education" = "Looking for insights into your educational journey? \nAsk questions like: \n\n\"What areas of study should I focus on?\"\n\n\"Will I ace my next exams?\"";
+
+"card_title_death" = "Death";
+"card_description_death" = "Brave enough to face life's deepest truths? \nCourageously ask me things like: \n\n\"How will I die?\"\n\n\"How can I come to terms with my mortality?\"\n\nWarning: You might not like the answer.";
+
+"block_ads" = "Block Ads";
+"Instagram" = "Instagram";
+"Twitter" = "Twitter";
+"contact_us" = "Contact Us";
+"Dark Mode" = "Dark Mode";
+"Light Mode" = "Light Mode";
+
+// InputView
+
+"Name" = "Name";
+"Age" = "Age";
+"Where do you live?" = "Where do you live?";
+"What do you want to know?" = "What do you want to know?";
+"Any context needed? If not, leave blank." = "Any context needed? If not, leave blank.";
+
+"🔮 Reveal 🔮" = "🔮 Reveal 🔮";
+"Revealing...🔮" = "Revealing...🔮";
+"Enter your details" = "Enter your details";
+
+"missing_info_title" = "Missing Information";
+"missing_info_message" = "Please enter your name, age, and question to get a prediction.";
+"ok_button" = "OK";
+
+"Error: Invalid age input." = "Error: Invalid age input.";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "%@'s Destiny 🔮";
+"save_success" = "Saved to Photos!";
+"save_failure" = "Failed to save image: %@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 Discover 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "Transaction failed with error:";
+"monthly_subscription_restored_message" = "Monthly subscription restored.";
+"annual_subscription_restored_message" = "Annual subscription restored.";
+"product_fetch_error_title" = "Product Fetch Error";
+"ok" = "OK";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "Unlock Unlimited\nPredictions!";
+"Buy %@ for %@" = "Buy %@ for %@";
+"You have an active subscription!" = "You have an active subscription!";
+"Restore Purchases" = "Restore Purchases";
+"notification_title" = "Notification";
+"ok" = "Ok";
+"Terms and Conditions" = "Terms and Conditions";
+"Privacy Policy" = "Privacy Policy";
+
+
+
+
+
+
+

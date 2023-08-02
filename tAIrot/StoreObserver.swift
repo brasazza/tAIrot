@@ -1,9 +1,11 @@
 import StoreKit
 
-class StoreObserver: NSObject, SKPaymentTransactionObserver {
+class StoreObserver: NSObject, ObservableObject, SKPaymentTransactionObserver {
     
     @Published var isMonthlySubscriptionActive: Bool = UserDefaults.standard.bool(forKey: "hasMonthlySubscription")
     @Published var isAnnualSubscriptionActive: Bool = UserDefaults.standard.bool(forKey: "hasAnnualSubscription")
+    
+    @Published var alertMessage: String?
     
     static let shared = StoreObserver()
 
@@ -71,6 +73,13 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
       }
 
       queue.finishTransaction(transaction)
+        
+        // Request a review after handling the transaction
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { // Wait 10 seconds before requesting a review
+           if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+               SKStoreReviewController.requestReview(in: scene)
+           }
+       }
     }
     
     private func handleFailed(transaction: SKPaymentTransaction, queue: SKPaymentQueue) {
@@ -82,6 +91,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
             default:
                 // Handle other errors
                 print("Transaction failed with error: \(error.localizedDescription)")
+                self.alertMessage = NSLocalizedString("transaction_failed_message", comment: "") + " " + error.localizedDescription
             }
         }
         queue.finishTransaction(transaction)
@@ -91,9 +101,11 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
         if transaction.original?.payment.productIdentifier == "unlimited_predictions_monthly" {
             UserDefaults.standard.set(true, forKey: "hasMonthlySubscription")
             self.isMonthlySubscriptionActive = true
+            self.alertMessage = NSLocalizedString("monthly_subscription_restored_message", comment: "")
         } else if transaction.original?.payment.productIdentifier == "unlimited_predictions_lifetime" {
             UserDefaults.standard.set(true, forKey: "hasAnnualSubscription")
             self.isAnnualSubscriptionActive = true
+            self.alertMessage = NSLocalizedString("annual_subscription_restored_message", comment: "")
         }
         queue.finishTransaction(transaction)
     }

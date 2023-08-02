@@ -1,0 +1,87 @@
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "개인적인";
+"card_description_personal" = "진정한 자신을 발견하세요. \n'나의 인생 목표는 무엇인가?' \n'내부의 평온함을 어떻게 찾을 수 있을까?' \n와 같은 깊은 질문을 해보세요.";
+
+"card_title_love" = "사랑";
+"card_description_love" = "당신의 애정 생활의 미래를 살펴보세요. \n'언제 '맞는 사람'을 만날 수 있을까?' \n'나의 전 연인과 다시 시작할 수 있을까?' \n등의 마음을 울리는 질문을 해보세요.";
+
+"card_title_finance" = "재정";
+"card_description_finance" = "당신의 재정 미래에 대한 아이디어를 얻으세요. \n'나의 재정 미래는 어떻게 보이나?' \n'나는 언젠가 로또에 당첨될 수 있을까?' \n등의 질문을 해보세요.";
+
+"card_title_relationships" = "관계";
+"card_description_relationships" = "가족과 관계에 대한 문제를 깊게 파고들어 보세요. \n'나의 부모님과의 관계가 좋아질 수 있을까?' \n'나의 우정은 계속될 수 있을까?' \n함께 알아봅시다!";
+
+"card_title_health" = "건강";
+"card_description_health" = "당신의 건강 미래를 살펴보고 싶나요? \n'어떤 건강 문제에 대비해야 하나?' \n'나의 정신 건강이 좋아질 수 있을까?' \n등의 질문을 해보세요.";
+
+"card_title_job" = "직업";
+"card_description_job" = "당신의 커리어가 무엇을 준비하고 있는지 살펴보세요. \n'나는 곧 승진을 할 수 있을까?' \n'나의 비즈니스 아이디어가 성공할 수 있을까?' \n등의 질문을 해보세요.";
+
+"card_title_education" = "교육";
+"card_description_education" = "당신의 교육 경로에 대한 정보를 찾고 있나요? \n'어떤 학문 분야에 초점을 맞춰야 하나?' \n'나는 다음 시험을 통과할 수 있을까?' \n등의 질문을 해보세요.";
+
+"card_title_death" = "죽음";
+"card_description_death" = "인생의 깊은 진실을 직면할 용기가 있나요? \n'나는 어떻게 죽을까?' \n'나는 어떻게 내 죽음을 받아들일 수 있을까?' \n등의 대담한 질문을 해보세요. 경고: 답변이 마음에 들지 않을 수도 있습니다.";
+
+"block_ads" = "광고 차단";
+"Instagram" = "인스타그램";
+"Twitter" = "트위터";
+"contact_us" = "문의하기";
+"Dark Mode" = "다크 모드";
+"Light Mode" = "라이트 모드";
+
+// InputView
+
+"Name" = "이름";
+"Age" = "나이";
+"Where do you live?" = "어디에 살고 계신가요?";
+"What do you want to know?" = "무엇을 알고 싶으신가요?";
+"Any context needed? If not, leave blank." = "추가적인 정보가 필요하신가요? 필요 없다면 빈 칸으로 두세요.";
+
+"🔮 Reveal 🔮" = "🔮 공개 🔮";
+"Revealing...🔮" = "공개중...🔮";
+"Enter your details" = "세부 정보를 입력하세요";
+
+"missing_info_title" = "정보 누락";
+"missing_info_message" = "예언을 얻기 위해 이름, 나이, 질문을 입력해 주세요.";
+"ok_button" = "확인";
+
+"Error: Invalid age input." = "오류: 나이 입력이 올바르지 않습니다.";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "%@의 운명 🔮";
+"save_success" = "사진에 저장됨!";
+"save_failure" = "이미지 저장 오류: %@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 발견 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "거래 실패 오류:";
+"monthly_subscription_restored_message" = "월간 구독 복원됨.";
+"annual_subscription_restored_message" = "연간 구독 복원됨.";
+"product_fetch_error_title" = "제품 가져오기 오류";
+"ok" = "확인";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "무제한 예언\n풀기!";
+"Buy %@ for %@" = "%@를 %@에 구매하세요";
+"You have an active subscription!" = "활성 구독이 있습니다!";
+"Restore Purchases" = "구매 복원";
+"notification_title" = "알림";
+"ok" = "확인";
+"Terms and Conditions" = "이용 약관";
+"Privacy Policy" = "개인정보 처리방침";
+
+
+
+
+
+

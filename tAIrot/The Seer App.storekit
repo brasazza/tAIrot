@@ -10,9 +10,69 @@
       "internalID" : "6450767199",
       "localizations" : [
         {
-          "description" : "Valid for one prediction.",
+          "description" : "Valid for one Prediction.",
+          "displayName" : "Single Prediction",
+          "locale" : "en_GB"
+        },
+        {
+          "description" : "Valable pour une Prédiction.",
+          "displayName" : "Prédiction Unique",
+          "locale" : "fr"
+        },
+        {
+          "description" : "Valid for one Prediction.",
+          "displayName" : "Single Prediction",
+          "locale" : "en_AU"
+        },
+        {
+          "description" : "한 번의 예측에 유효합니다.",
+          "displayName" : "단일 예측",
+          "locale" : "ko"
+        },
+        {
+          "description" : "Valid for one Prediction.",
           "displayName" : "Single Prediction",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Valid for one Prediction.",
+          "displayName" : "Single Prediction",
+          "locale" : "en_CA"
+        },
+        {
+          "description" : "Valida per una Predizione.",
+          "displayName" : "Predizione Singola",
+          "locale" : "it"
+        },
+        {
+          "description" : "Gültig für eine Vorhersage.",
+          "displayName" : "Einzelne Vorhersage",
+          "locale" : "de"
+        },
+        {
+          "description" : "Válido para Una Predicción.",
+          "displayName" : "Una Predicción",
+          "locale" : "es_MX"
+        },
+        {
+          "description" : "Válido para Una Predicción.",
+          "displayName" : "Una Predicción",
+          "locale" : "es_ES"
+        },
+        {
+          "description" : "一つの予測に有効.",
+          "displayName" : "シングル予測",
+          "locale" : "ja"
+        },
+        {
+          "description" : "Действительно для одного Предсказания.",
+          "displayName" : "Одиночное Предсказание",
+          "locale" : "ru"
+        },
+        {
+          "description" : "صالح لتنبؤ واحد.",
+          "displayName" : "التنبؤ الفردي",
+          "locale" : "ar"
         }
       ],
       "productID" : "single_prediction",
@@ -23,7 +83,7 @@
   "settings" : {
     "_applicationInternalID" : "6450766089",
     "_developerTeamID" : "MT6TFTW824",
-    "_lastSynchronizedDate" : 711503635.455212
+    "_lastSynchronizedDate" : 712550433.86929703
   },
   "subscriptionGroups" : [
     {
@@ -47,9 +107,74 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
+              "description" : "Un mois de prédictions illimitées.",
+              "displayName" : "Abonnement Mensuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "يمنحك شهرا من التنبؤات غير المحدودة.",
+              "displayName" : "الاشتراك الشهري",
+              "locale" : "ar"
+            },
+            {
+              "description" : "한 달 동안 무제한 예측을 제공합니다.",
+              "displayName" : "월간 구독",
+              "locale" : "ko"
+            },
+            {
+              "description" : "Grants you a month of unlimited predictions.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_AU"
+            },
+            {
+              "description" : "Un mois de prédictions illimitées.",
+              "displayName" : "Abonnement Mensuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "Unbegrenzte Vorhersagen für einen Monat.",
+              "displayName" : "Monatsabonnement",
+              "locale" : "de"
+            },
+            {
+              "description" : "Te otorga un mes de predicciones ilimitadas.",
+              "displayName" : "Suscripción Mensual",
+              "locale" : "es_ES"
+            },
+            {
+              "description" : "Te otorga un mes de predicciones ilimitadas.",
+              "displayName" : "Suscripción Mensual",
+              "locale" : "es_MX"
+            },
+            {
               "description" : "Grants you a month of unlimited predictions.",
               "displayName" : "Monthly Subscription",
               "locale" : "en_US"
+            },
+            {
+              "description" : "無制限の予測を一か月間利用できます。",
+              "displayName" : "月額サブスクリプション",
+              "locale" : "ja"
+            },
+            {
+              "description" : "Grants you a month of unlimited predictions.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_GB"
+            },
+            {
+              "description" : "Grants you a month of unlimited predictions.",
+              "displayName" : "Monthly Subscription",
+              "locale" : "en_CA"
+            },
+            {
+              "description" : "Месяц неогранич. предсказаний.",
+              "displayName" : "Ежемесячная Подписка",
+              "locale" : "ru"
+            },
+            {
+              "description" : "Ti concede un mese di predizioni illimitate.",
+              "displayName" : "Abbonamento Mensile",
+              "locale" : "it"
             }
           ],
           "productID" : "unlimited_predictions_monthly",
@@ -72,9 +197,74 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
+              "description" : "1年間の無制限の予測。",
+              "displayName" : "年間契約",
+              "locale" : "ja"
+            },
+            {
+              "description" : "1년간 무제한 예측.",
+              "displayName" : "연간 구독",
+              "locale" : "ko"
+            },
+            {
+              "description" : "Unbegrenzte Vorhersagen für ein Jahr.",
+              "displayName" : "Jahresabo",
+              "locale" : "de"
+            },
+            {
+              "description" : "Te otorga un año de predicciones ilimitadas.",
+              "displayName" : "Suscripción Anual",
+              "locale" : "es_MX"
+            },
+            {
               "description" : "Grants you a year of unlimited predictions.",
               "displayName" : "Yearly Subscription",
               "locale" : "en_US"
+            },
+            {
+              "description" : "Grants you a year of unlimited predictions.",
+              "displayName" : "Yearly Subscription",
+              "locale" : "en_CA"
+            },
+            {
+              "description" : "Grants you a year of unlimited predictions.",
+              "displayName" : "Yearly Subscription",
+              "locale" : "en_GB"
+            },
+            {
+              "description" : "Prédictions illimitées pour un an.",
+              "displayName" : "Abonnement Annuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "Te otorga un año de predicciones ilimitadas.",
+              "displayName" : "Suscripción Anual",
+              "locale" : "es_ES"
+            },
+            {
+              "description" : "Prédictions illimitées pour un an.",
+              "displayName" : "Abonnement Annuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "Predizioni illimitate per un anno.",
+              "displayName" : "Abbonamento Annuale",
+              "locale" : "it"
+            },
+            {
+              "description" : "Grants you a year of unlimited predictions.",
+              "displayName" : "Yearly Subscription",
+              "locale" : "en_AU"
+            },
+            {
+              "description" : "Год неогранич. предсказаний.",
+              "displayName" : "Год. подписка",
+              "locale" : "ru"
+            },
+            {
+              "description" : "تنبؤات غير محدودة لمدة سنة.",
+              "displayName" : "اشتراك سنوي",
+              "locale" : "ar"
             }
           ],
           "productID" : "unlimited_predictions_lifetime",

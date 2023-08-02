@@ -1,0 +1,92 @@
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "パーソナル";
+"card_description_personal" = "真の自分を見つけてください。 \n深い問いを投げかけてみてください： \n\n\"私の人生の目的は何ですか？\" \n\n\"どうすれば内なる平和を得ることができますか？\"";
+
+"card_title_love" = "恋愛";
+"card_description_love" = "あなたの恋愛生活の未来を見てみましょう。 \n心に響くような問いを投げかけてみてください： \n\n\"私はいつ'正しい人'に出会いますか？\" \n\n\"私の元カレ、元カノとはもう一度チャンスがありますか？\"";
+
+"card_title_finance" = "金融";
+"card_description_finance" = "あなたの金融の未来についての洞察を得ましょう。 \n問いを投げかけてみてください： \n\n\"私の金融の未来はどうなっていますか？\" \n\n\"私はいつか宝くじに勝つことができますか？\"";
+
+"card_title_relationships" = "関係";
+"card_description_relationships" = "家族や関係の問題に深く踏み込みましょう。 \n\n\"私と両親との関係は改善されますか？\" \n\n\"私の友情は続きますか？\" \n\n一緒に見つけましょう！";
+
+"card_title_health" = "健康";
+"card_description_health" = "あなたの健康の未来を見てみたいですか？ \n問いを投げかけてみてください： \n\n\"どのような健康問題に備えるべきですか？\" \n\n\"私の精神的健康は改善されますか？\"";
+
+"card_title_job" = "仕事";
+"card_description_job" = "あなたのキャリアが何をもたらすかを見てみましょう。 \n問いを投げかけてみてください： \n\n\"私はすぐに昇進しますか？\" \n\n\"私のビジネスアイデアは成功しますか？\"";
+
+"card_title_education" = "教育";
+"card_description_education" = "あなたの教育経路についての情報を探していますか？ \n問いを投げかけてみてください： \n\n\"どの学習領域に焦点を当てるべきですか？\" \n\n\"私は次の試験に合格しますか？\"";
+
+"card_title_death" = "死";
+"card_description_death" = "人生の最深部の真実に立ち向かう勇気はありますか？ \n勇敢にこんなことを尋ねてみてください： \n\n\"私はどうやって死ぬのでしょうか？\" \n\n\"私はどのようにして自分の死を受け入れることができますか？\" \n\n警告：答えが気に入らないかもしれません。";
+
+"block_ads" = "広告をブロック";
+"Instagram" = "Instagram";
+"Twitter" = "Twitter";
+"contact_us" = "お問い合わせ";
+"Dark Mode" = "ダークモード";
+"Light Mode" = "ライトモード";
+
+// InputView
+
+"Name" = "名前";
+"Age" = "年齢";
+"Where do you live?" = "あなたはどこに住んでいますか？";
+"What do you want to know?" = "何を知りたいですか？";
+"Any context needed? If not, leave blank." = "何か必要なコンテキストはありますか？ なければ、空白のままにしてください。";
+
+"🔮 Reveal 🔮" = "🔮 明らかにする 🔮";
+"Revealing...🔮" = "明らかにしています...🔮";
+"Enter your details" = "詳細を入力してください";
+
+"missing_info_title" = "情報が足りません";
+"missing_info_message" = "予測を得るためには、あなたの名前、年齢、質問を入力してください。";
+"ok_button" = "OK";
+
+"Error: Invalid age input." = "エラー：無効な年齢入力。";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "%@の運命 🔮";
+"save_success" = "写真に保存しました！";
+"save_failure" = "画像の保存に失敗しました：%@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 発見 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "トランザクションに失敗しました。エラー：";
+"monthly_subscription_restored_message" = "月間サブスクリプションが復元されました。";
+"annual_subscription_restored_message" = "年間サブスクリプションが復元されました。";
+"product_fetch_error_title" = "製品の取得エラー";
+"ok" = "OK";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "無制限の\n予測を解放する！";
+"Buy %@ for %@" = "%@を%@で購入する";
+"You have an active subscription!" = "アクティブなサブスクリプションがあります！";
+"Restore Purchases" = "購入を復元する";
+"notification_title" = "通知";
+"ok" = "OK";
+"Terms and Conditions" = "利用規約";
+"Privacy Policy" = "プライバシーポリシー";
+
+
+
+
+
+
+
+
+
+
+

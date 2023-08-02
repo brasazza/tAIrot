@@ -29,7 +29,7 @@ struct IntroView: View {
                         ]),
                         center: .center,
                         startRadius: 0,
-                        endRadius: 1000
+                        endRadius: 900
                     )
                     .edgesIgnoringSafeArea(.all)
                 } else {
@@ -42,7 +42,7 @@ struct IntroView: View {
                         ]),
                         center: .center,
                         startRadius: 0,
-                        endRadius: 1000
+                        endRadius: 900
                     )
                     .edgesIgnoringSafeArea(.all)
                 }
@@ -135,50 +135,50 @@ struct MainView: View {
     
     let cards = [
             Card(
-                title: NSLocalizedString("Personal", comment: ""),
-                description: NSLocalizedString("Discover your true self. \nAsk profound questions like:\n\n\"What is my purpose in life?\"\n\n\"How can I achieve inner peace?\"", comment: ""),
+                title: NSLocalizedString("card_title_personal", comment: ""),
+                description: NSLocalizedString("card_description_personal", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 53/255, green: 18/255, blue: 102/255), Color(red: 182/255, green: 132/255, blue: 255/255)]), startPoint: .top, endPoint: .bottom),
                 type: .personal
             ),
             Card(
-                title: NSLocalizedString("Love", comment: ""),
-                description: NSLocalizedString("Cupid's got nothing on me! \nFire daring questions like: \n\n\"When will I meet 'the one'? \n \n\"Will my ex and I get back together?\"", comment: ""),
+                title: NSLocalizedString("card_title_love", comment: ""),
+                description: NSLocalizedString("card_description_love", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 103/255, green: 7/255, blue: 9/255), Color(red: 253/255, green: 0/255, blue: 12/255)]), startPoint: .top, endPoint: .bottom),
                 type: .love
             ),
             Card(
-                title: NSLocalizedString("Finance", comment: ""),
-                description: NSLocalizedString("Want a glimpse into your financial future? \nAsk questions like: \n\n\"What does my financial future look like?\" \n\n\"Am I ever going to win the lottery?\"", comment: ""),
+                title: NSLocalizedString("card_title_finance", comment: ""),
+                description: NSLocalizedString("card_description_finance", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 43/255, green: 161/255, blue: 73/255), Color(red: 242/255, green: 204/255, blue: 27/255)]), startPoint: .top, endPoint: .bottom),
                 type: .finance
             ),
             Card(
-                title: NSLocalizedString("Relationships", comment: ""),
-                description: NSLocalizedString("Delve into matters of family and relationships. \n\n\"Will my relationship with my parents improve?\" \n\n\"Will my friendship last?\" \n\nLet's find out!", comment: ""),
+                title: NSLocalizedString("card_title_relationships", comment: ""),
+                description: NSLocalizedString("card_description_relationships", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 224/255, green: 131/255, blue: 15/255), Color(red: 255/255, green: 204/255, blue: 3/255)]), startPoint: .top, endPoint: .bottom),
                 type: .relationships
             ),
             Card(
-                title: NSLocalizedString("Health", comment: ""),
-                description: NSLocalizedString("Want to peek into your health's future? \nAsk questions like: \n\n\"What health challenges might I face in the future?\" \n \n\"Will my mental health improve?\"", comment: ""),
+                title: NSLocalizedString("card_title_health", comment: ""),
+                description: NSLocalizedString("card_description_health", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 0/255, green: 0/255, blue: 128/255), Color(red: 173/255, green: 216/255, blue: 230/255)]), startPoint: .top, endPoint: .bottom),
                 type: .health
             ),
             Card(
-                title: NSLocalizedString("Job", comment: ""),
-                description: NSLocalizedString("Keen to discover your professional destiny? \nFire questions like: \n\n\"Will I get a promotion soon?\" \n \n\"Will my business idea be successful?\"", comment: ""),
+                title: NSLocalizedString("card_title_job", comment: ""),
+                description: NSLocalizedString("card_description_job", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 54/255, green: 32/255, blue: 14/255), Color(red: 188/255, green: 131/255, blue: 66/255)]), startPoint: .top, endPoint: .bottom),
                 type: .job
             ),
             Card(
-                title: NSLocalizedString("Education", comment: ""),
-                description: NSLocalizedString("Looking for insights into your educational journey? \nAsk questions like: \n\n\"What areas of study should I focus on?\" \n \n\"Will I be successful in my upcoming exams?\"", comment: ""),
+                title: NSLocalizedString("card_title_education", comment: ""),
+                description: NSLocalizedString("card_description_education", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 30/255, green: 144/255, blue: 255/255), Color(red: 240/255, green: 248/255, blue: 255/255)]), startPoint: .top, endPoint: .bottom),
                 type: .education
             ),
             Card(
-                title: NSLocalizedString("Death", comment: ""),
-                description: NSLocalizedString("Brave enough to face life's deepest truths? \nCourageously ask me things like: \n\n\"How will I die?\" \n \n\"How can I come to terms with my mortality?\" \n\n Warning: You might not like the answer.", comment: ""),
+                title: NSLocalizedString("card_title_death", comment: ""),
+                description: NSLocalizedString("card_description_death", comment: ""),
                 color: LinearGradient(gradient: Gradient(colors: [Color(red: 0/255, green: 0/255, blue: 0/255), Color(red: 147/255, green: 147/255, blue: 155/255)]), startPoint: .top, endPoint: .bottom),
                 type: .death
             )
@@ -245,9 +245,10 @@ struct MainView: View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         HStack {
-                            Text("The Seer")
+                            Text(NSLocalizedString("The Seer", comment: ""))
                                 .font(.custom("MuseoModerno", size: 35))
                                 .font(.headline)
+                                .foregroundColor(colorScheme == .dark ? .white : Color(red: 114/255, green: 39/255, blue: 165/255))
                                 .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.4), radius: 5, x: 0, y: 2)
                                 .padding(.vertical, 20)
                                 .frame(height: 70)
@@ -276,6 +277,7 @@ struct MainView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        impactFeedback()
                         print("purchasedPredictionCount in IAPManager: \(iapManager.purchasedPredictionCount)")
                         isShowingIAPView = true
                     }) {
@@ -308,6 +310,8 @@ struct MainView: View {
     }
     
     struct SideMenu: View {
+        @EnvironmentObject var iapManager: IAPManager
+        @State private var isShowingIAPView = false
         @Binding var isShowingMenu: Bool
         @Environment(\.colorScheme) var colorScheme
         @AppStorage("isDarkMode") private var isDarkMode = false
@@ -326,31 +330,22 @@ struct MainView: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 40) {
-                    
+                                        
                     Button(action: {
-                        print("Block Ads tapped")
+                        print("purchasedPredictionCount in IAPManager: \(iapManager.purchasedPredictionCount)")
+                                               isShowingIAPView = true
                     }) {
                         HStack {
                             Image(systemName: "shield.fill")
-                            Text(NSLocalizedString("Block Ads", comment: ""))
+                            Text(NSLocalizedString("block_ads", comment: ""))
                                 .font(.headline)
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
                         }
                     }
-                    
-                    
-                    Button(action: {
-                        print("Restore Purchase tapped")
-                    }) {
-                        HStack {
-                            Image(systemName: "arrow.clockwise.circle.fill")
-                            Text(NSLocalizedString("Restore Purchase", comment: ""))
-                                .font(.headline)
-                                .foregroundColor(colorScheme == .dark ? .white : .black)
-                                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)
-                        }
-                    }
+                    .sheet(isPresented: $isShowingIAPView) {
+                                    IAPView(isShowingIAPView: self.$isShowingIAPView)
+                                }
                     
                     Button(action: {
                         if let url = URL(string: "https://www.instagram.com/TheSeerApp/") {
@@ -394,7 +389,7 @@ struct MainView: View {
                     }) {
                         HStack {
                             Image(systemName: "envelope.fill")
-                            Text(NSLocalizedString("Contact Us", comment: ""))
+                            Text(NSLocalizedString("contact_us", comment: ""))
                                 .font(.headline)
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .shadow(color: colorScheme == .dark ? Color.white.opacity(0.6) : Color.black.opacity(0.2), radius: 10, x: 0, y: 2)

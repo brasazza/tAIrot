@@ -1,0 +1,87 @@
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "Persönlich";
+"card_description_personal" = "Entdecke dein wahres Ich. \nStelle tiefe Fragen wie: \n\n\"Was ist mein Lebenszweck?\" \n\n\"Wie kann ich innere Ruhe finden?\"";
+
+"card_title_love" = "Liebe";
+"card_description_love" = "Werfen Sie einen Blick auf die Zukunft Ihres Liebeslebens. \nStelle Fragen, die das Herz berühren, wie: \n\n\"Wann treffe ich 'die richtige Person'?\" \n\n\"Gibt es eine zweite Chance mit meinem Ex?\"";
+
+"card_title_finance" = "Finanzen";
+"card_description_finance" = "Erhalten Sie einen Einblick in Ihre finanzielle Zukunft. \nStelle Fragen wie: \n\n\"Wie sieht meine finanzielle Zukunft aus?\" \n\n\"Werde ich jemals im Lotto gewinnen?\"";
+
+"card_title_relationships" = "Beziehungen";
+"card_description_relationships" = "Gehe tief in Fragen der Familie und Beziehungen ein. \n\n\"Wird sich meine Beziehung zu meinen Eltern verbessern?\" \n\n\"Wird meine Freundschaft bestehen bleiben?\" \n\nLassen Sie es uns herausfinden!";
+
+"card_title_health" = "Gesundheit";
+"card_description_health" = "Möchtest du einen Blick auf die Zukunft deiner Gesundheit werfen? \nStelle Fragen wie: \n\n\"Auf welche Gesundheitsprobleme sollte ich mich vorbereiten?\" \n\n\"Wird sich meine psychische Gesundheit verbessern?\"";
+
+"card_title_job" = "Job";
+"card_description_job" = "Sieh, was deine Karriere für dich bereithält. \nStelle Fragen wie: \n\n\"Werde ich bald eine Beförderung bekommen?\" \n\n\"Wird meine Geschäftsidee erfolgreich sein?\"";
+
+"card_title_education" = "Bildung";
+"card_description_education" = "Suchst du Informationen über deinen Bildungsweg? \nStelle Fragen wie: \n\n\"Auf welche Studienbereiche sollte ich mich konzentrieren?\" \n\n\"Werde ich meine nächsten Prüfungen bestehen?\"";
+
+"card_title_death" = "Tod";
+"card_description_death" = "Bist du mutig genug, um die tiefsten Wahrheiten des Lebens anzugehen? \nMutig frag mich Dinge wie: \n\n\"Wie werde ich sterben?\" \n\n\"Wie kann ich meine Sterblichkeit akzeptieren?\" \n\nWarnung: Die Antwort könnte dir nicht gefallen.";
+
+"block_ads" = "Anzeigen blockieren";
+"Instagram" = "Instagram";
+"Twitter" = "Twitter";
+"contact_us" = "Kontaktiere uns";
+"Dark Mode" = "Dunkelmodus";
+"Light Mode" = "Hellmodus";
+
+// InputView
+
+"Name" = "Name";
+"Age" = "Alter";
+"Where do you live?" = "Wo lebst du?";
+"What do you want to know?" = "Was möchtest du wissen?";
+"Any context needed? If not, leave blank." = "Irgendwelche Kontexte nötig? Wenn nicht, leer lassen.";
+
+"🔮 Reveal 🔮" = "🔮 Aufdecken 🔮";
+"Revealing...🔮" = "Aufdeckung...🔮";
+"Enter your details" = "Gib deine Details ein";
+
+"missing_info_title" = "Fehlende Informationen";
+"missing_info_message" = "Bitte gib deinen Namen, dein Alter und deine Frage ein, um eine Vorhersage zu erhalten.";
+"ok_button" = "OK";
+
+"Error: Invalid age input." = "Fehler: Ungültige Altersangabe.";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "%@'s Schicksal 🔮";
+"save_success" = "In Fotos gespeichert!";
+"save_failure" = "Fehler beim Speichern des Bildes: %@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 Entdecken 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "Transaktion fehlgeschlagen mit Fehler:";
+"monthly_subscription_restored_message" = "Monatliches Abonnement wiederhergestellt.";
+"annual_subscription_restored_message" = "Jährliches Abonnement wiederhergestellt.";
+"product_fetch_error_title" = "Fehler beim Abrufen des Produkts";
+"ok" = "OK";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "Unbegrenzte\nVorhersagen freischalten!";
+"Buy %@ for %@" = "Kaufe %@ für %@";
+"You have an active subscription!" = "Du hast ein aktives Abonnement!";
+"Restore Purchases" = "Käufe wiederherstellen";
+"notification_title" = "Benachrichtigung";
+"ok" = "OK";
+"Terms and Conditions" = "Geschäftsbedingungen";
+"Privacy Policy" = "Datenschutzerklärung";
+
+
+
+
+
+

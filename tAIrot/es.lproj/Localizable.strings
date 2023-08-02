@@ -1,0 +1,87 @@
+// ContentView
+
+"The Seer" = "The Seer";
+
+"card_title_personal" = "Personal";
+"card_description_personal" = "Descubre tu verdadero yo. \nPregunta cuestiones profundas como: \n\n\"¿Cuál es mi propósito en la vida?\" \n\n\"¿Cómo puedo lograr la paz interior?\"";
+
+"card_title_love" = "Amor";
+"card_description_love" = "Echa un vistazo al futuro de tu vida amorosa. \nPregunta cosas que llegan al corazón como: \n\n\"¿Cuándo conoceré a 'la persona correcta'?\" \n\n\"¿Hay una segunda oportunidad con mi ex?\"";
+
+"card_title_finance" = "Finanzas";
+"card_description_finance" = "Obtén una idea de tu futuro financiero. \nPregunta cosas como: \n\n\"¿Cómo se ve mi futuro financiero?\" \n\n\"¿Algún día daré el pelotazo?\"";
+
+"card_title_relationships" = "Relaciones";
+"card_description_relationships" = "Profundiza en asuntos de familia y relaciones. \n\n\"¿Mejorará mi relación con mis padres?\" \n\n\"¿Durará mi amistad?\" \n\n¡Averigüémoslo!";
+
+"card_title_health" = "Salud";
+"card_description_health" = "¿Quieres echar un vistazo al futuro de tu salud? \nPregunta cosas como: \n\n\"¿Para qué problemas de salud debería prepararme?\" \n\n\"¿Mejorará mi salud mental?\"";
+
+"card_title_job" = "Trabajo";
+"card_description_job" = "Ve lo que te depara tu carrera. \nHaz preguntas como: \n\n\"¿Conseguiré un ascenso pronto?\" \n\n\"¿Será exitosa mi idea de negocio?\"";
+
+"card_title_education" = "Educación";
+"card_description_education" = "¿Buscas pistas sobre tu trayectoria educativa? \nPregunta cosas como: \n\n\"¿En qué áreas de estudio debería centrarme?\" \n\n\"¿Sacaré buenas notas en mis próximos exámenes?\"";
+
+"card_title_death" = "Muerte";
+"card_description_death" = "¿Suficientemente valiente para enfrentar las verdades más profundas de la vida? \nAtrévete a preguntarme cosas como: \n\n\"¿Cómo voy a morir?\" \n\n\"¿Cómo puedo aceptar mi mortalidad?\" \n\nAdvertencia: Puede que no te guste la respuesta.";
+
+"block_ads" = "Bloquear Anuncios";
+"Instagram" = "Instagram";
+"Twitter" = "Twitter";
+"contact_us" = "Contacta con Nosotros";
+"Dark Mode" = "Modo Oscuro";
+"Light Mode" = "Modo Claro";
+
+// InputView
+
+"Name" = "Nombre";
+"Age" = "Edad";
+"Where do you live?" = "¿Dónde vives?";
+"What do you want to know?" = "¿Qué quieres saber?";
+"Any context needed? If not, leave blank." = "¿Necesitas algún contexto? Si no, déjalo en blanco.";
+
+"🔮 Reveal 🔮" = "🔮 Revelar 🔮";
+"Revealing...🔮" = "Revelando...🔮";
+"Enter your details" = "Introduce tus datos";
+
+"missing_info_title" = "Falta Información";
+"missing_info_message" = "Por favor, introduce tu nombre, edad y pregunta para obtener una predicción.";
+"ok_button" = "OK";
+
+"Error: Invalid age input." = "Error: Entrada de edad inválida.";
+
+// ResultView
+
+"%@'s Destiny 🔮" = "El Destino de %@ 🔮";
+"save_success" = "¡Guardado en Fotos!";
+"save_failure" = "Error al guardar la imagen: %@";
+
+// CardView
+
+"🔮 Discover 🔮" = "🔮 Descubrir 🔮";
+
+// IAP Alerts
+
+"transaction_failed_message" = "La transacción ha fallado con el error:";
+"monthly_subscription_restored_message" = "Suscripción mensual restaurada.";
+"annual_subscription_restored_message" = "Suscripción anual restaurada.";
+"product_fetch_error_title" = "Error al Obtener Producto";
+"ok" = "Vale";
+
+// IAPView
+
+"Unlock Unlimited\nPredictions!" = "Desbloquea Predicciones\nIlimitadas!";
+"Buy %@ for %@" = "Compra %@ por %@";
+"You have an active subscription!" = "¡Tienes una suscripción activa!";
+"Restore Purchases" = "Restaurar Compras";
+"notification_title" = "Notificación";
+"ok" = "Vale";
+"Terms and Conditions" = "Términos y Condiciones";
+"Privacy Policy" = "Política de Privacidad";
+
+
+
+
+
+

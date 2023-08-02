@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 import Alamofire
 import FirebaseRemoteConfig
+import StoreKit
 
 struct InputView: View {
     let card: Card
@@ -110,6 +111,17 @@ struct InputView: View {
                                 print("Prediction count after decrement: \(predictionCounter.predictionCount)")
                                 self.predictionCounter.lastPredictionTimestamp = Date().timeIntervalSince1970
                                 UserDefaults.standard.set(self.predictionCounter.lastPredictionTimestamp, forKey: "lastPredictionTimestamp") // Update UserDefaults
+                            }
+                        }
+                        // Generate a random number between 1 and 5
+                        let randomNumber = Int.random(in: 1...5)
+
+                        // If the random number is 1, request a review
+                        if randomNumber == 1 {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) { // Wait 10 more seconds before requesting a review
+                                if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                                    SKStoreReviewController.requestReview(in: scene)
+                                }
                             }
                         }
                     }
@@ -270,6 +282,7 @@ struct InputView: View {
                                         Text(NSLocalizedString("Enter your details", comment: ""))
                                             .font(.custom("MuseoModerno", size: 30))
                                             .font(.headline)
+                                            .foregroundColor(colorScheme == .dark ? .white : Color(red: 114/255, green: 39/255, blue: 165/255))
                                             .shadow(color: colorScheme == .dark ? Color.purple.opacity(0.9) : Color.black.opacity(0.6), radius: 10, x: 0, y: 2)
                                             .scaleEffect(textScaleFactor)  // Aplicar el factor de escala al texto
                                             .padding()
