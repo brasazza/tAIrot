@@ -29,7 +29,7 @@ struct IAPView: View {
                     .shadow(color: Color.black, radius: 10, x: 0, y: 0)
                     .shadow(color: .black, radius: 10)
                     .multilineTextAlignment(.center)
-                    .padding(.top, 60)
+                    .padding(.top, UIScreen.main.bounds.height < 668 ? 100 : 60)
                     .scaleEffect(isAnimating ? 1.1 : 1.0)
                     .opacity(isAnimating ? 0.9 : 1.0)
                     .onAppear {

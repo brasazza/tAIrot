@@ -155,6 +155,7 @@ struct ResultView: View {
     let card: Card
     let name: String
     let question: String
+    let context: String
     @Binding var showResult: Bool
     
     @Environment(\.displayScale) var displayScale
@@ -192,24 +193,35 @@ struct ResultView: View {
                 VStack {
                     VStack(alignment: .center, spacing: 10) {
                         Text(String(format: NSLocalizedString("%@'s Destiny 🔮", comment: ""), name))
-                            .font(.title)
+                            .font(geometry.size.height < 668 ? .title2 : .title)
                             .shadow(color: Color.black.opacity(0.5), radius: 4, x: 0, y: 2)
                             .bold()
                             .foregroundColor(.white)
                         
                         Text("\"\(question)\"")
-                            .font(.title3)
-                            .italic()
+                            .font(geometry.size.height < 668 ? .headline : .title2)
                             .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
+                        
+                        Text("Context: \"\(context)...\"")
+                            .font(geometry.size.height < 668 ? .headline : .title2)
+                            .italic()
+                            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                            .foregroundColor(.white)
+                            .opacity(0.6)
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, geometry.size.height < 668 ? 10 : 10)
                     
                     VStack {
                         Spacer()
                         Text(prediction)
-                            .font(.title2)
+                            .font(
+                                    geometry.size.height < 668
+                                    ? (prediction.count < 300 ? .title3 : .headline)
+                                    : (prediction.count < 380 ? .title2 : .title3)
+                                )
                             .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
@@ -221,7 +233,7 @@ struct ResultView: View {
                     
                     // Aquí agregamos el texto
                     Text("The Seer App 🔮")
-                        .font(.custom("MuseoModerno", size: 20))
+                        .font(.custom("MuseoModerno", size: geometry.size.height < 668 ? 13 : 20))
                         .shadow(color: Color.black.opacity(0.4), radius: 4, x: 0, y: 2)
                         .bold()
                         .foregroundColor(.white)  // También puedes cambiar el color
@@ -311,7 +323,7 @@ struct ResultView: View {
                         ShareSheet(imageData: $shareImageData)
                     }
                 }
-                .padding(.bottom, 50)
+                .padding(.bottom, 10)
                 
                 Spacer()
             }
@@ -354,5 +366,11 @@ struct ResultView: View {
                 .modifier(ParticlesModifier())
                 .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
+    }
+}
+
+struct Previews_ResultView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

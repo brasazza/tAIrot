@@ -10,9 +10,34 @@
       "internalID" : "6450767199",
       "localizations" : [
         {
+          "description" : "Действительно для одного Предсказания.",
+          "displayName" : "Одиночное Предсказание",
+          "locale" : "ru"
+        },
+        {
+          "description" : "一つの予測に有効.",
+          "displayName" : "シングル予測",
+          "locale" : "ja"
+        },
+        {
           "description" : "Valid for one Prediction.",
           "displayName" : "Single Prediction",
           "locale" : "en_GB"
+        },
+        {
+          "description" : "Válido para Una Predicción.",
+          "displayName" : "Una Predicción",
+          "locale" : "es_ES"
+        },
+        {
+          "description" : "Gültig für eine Vorhersage.",
+          "displayName" : "Einzelne Vorhersage",
+          "locale" : "de"
+        },
+        {
+          "description" : "Valida per una Predizione.",
+          "displayName" : "Predizione Singola",
+          "locale" : "it"
         },
         {
           "description" : "Valable pour une Prédiction.",
@@ -22,7 +47,12 @@
         {
           "description" : "Valid for one Prediction.",
           "displayName" : "Single Prediction",
-          "locale" : "en_AU"
+          "locale" : "en_US"
+        },
+        {
+          "description" : "صالح لتنبؤ واحد.",
+          "displayName" : "التنبؤ الفردي",
+          "locale" : "ar"
         },
         {
           "description" : "한 번의 예측에 유효합니다.",
@@ -32,7 +62,7 @@
         {
           "description" : "Valid for one Prediction.",
           "displayName" : "Single Prediction",
-          "locale" : "en_US"
+          "locale" : "en_AU"
         },
         {
           "description" : "Valid for one Prediction.",
@@ -40,39 +70,9 @@
           "locale" : "en_CA"
         },
         {
-          "description" : "Valida per una Predizione.",
-          "displayName" : "Predizione Singola",
-          "locale" : "it"
-        },
-        {
-          "description" : "Gültig für eine Vorhersage.",
-          "displayName" : "Einzelne Vorhersage",
-          "locale" : "de"
-        },
-        {
           "description" : "Válido para Una Predicción.",
           "displayName" : "Una Predicción",
           "locale" : "es_MX"
-        },
-        {
-          "description" : "Válido para Una Predicción.",
-          "displayName" : "Una Predicción",
-          "locale" : "es_ES"
-        },
-        {
-          "description" : "一つの予測に有効.",
-          "displayName" : "シングル予測",
-          "locale" : "ja"
-        },
-        {
-          "description" : "Действительно для одного Предсказания.",
-          "displayName" : "Одиночное Предсказание",
-          "locale" : "ru"
-        },
-        {
-          "description" : "صالح لتنبؤ واحد.",
-          "displayName" : "التنبؤ الفردي",
-          "locale" : "ar"
         }
       ],
       "productID" : "single_prediction",
@@ -83,7 +83,7 @@
   "settings" : {
     "_applicationInternalID" : "6450766089",
     "_developerTeamID" : "MT6TFTW824",
-    "_lastSynchronizedDate" : 712550433.86929703
+    "_lastSynchronizedDate" : 712697331.07239604
   },
   "subscriptionGroups" : [
     {
@@ -115,6 +115,11 @@
               "description" : "يمنحك شهرا من التنبؤات غير المحدودة.",
               "displayName" : "الاشتراك الشهري",
               "locale" : "ar"
+            },
+            {
+              "description" : "無制限の予測を一か月間利用できます。",
+              "displayName" : "月額サブスクリプション",
+              "locale" : "ja"
             },
             {
               "description" : "한 달 동안 무제한 예측을 제공합니다.",
@@ -152,9 +157,9 @@
               "locale" : "en_US"
             },
             {
-              "description" : "無制限の予測を一か月間利用できます。",
-              "displayName" : "月額サブスクリプション",
-              "locale" : "ja"
+              "description" : "Ti concede un mese di predizioni illimitate.",
+              "displayName" : "Abbonamento Mensile",
+              "locale" : "it"
             },
             {
               "description" : "Grants you a month of unlimited predictions.",
@@ -170,11 +175,6 @@
               "description" : "Месяц неогранич. предсказаний.",
               "displayName" : "Ежемесячная Подписка",
               "locale" : "ru"
-            },
-            {
-              "description" : "Ti concede un mese di predizioni illimitate.",
-              "displayName" : "Abbonamento Mensile",
-              "locale" : "it"
             }
           ],
           "productID" : "unlimited_predictions_monthly",

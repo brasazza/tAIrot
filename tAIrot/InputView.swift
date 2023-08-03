@@ -338,7 +338,7 @@ struct InputView: View {
             }
             .sheet(isPresented: $showResult) {
                 if #available(iOS 16.0, *) {
-                    ResultView(prediction: prediction.0, card: prediction.1, name: name, question: question, showResult: $showResult)
+                    ResultView(prediction: prediction.0, card: prediction.1, name: name, question: question, context: context,  showResult: $showResult)
                 } else {
                     // Fallback on earlier versions
                 }
